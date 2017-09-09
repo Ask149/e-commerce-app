@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_mobile"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Smartphones" />
+        <item
+            android:id="@+id/nav_laptops"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Laptops" />
+        <item
+            android:id="@+id/nav_washingmachine"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Washing Machine" />
+        <item
+            android:id="@+id/nav_refridgerators"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Refridgerator" />
+        <item
+            android:id="@+id/nav_tv"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Television" />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Share" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Send" />
+        </menu>
+    </item>
+
+</menu>
