@@ -36,7 +36,6 @@ public class Main4Activity extends AppCompatActivity {
         regsubmit = (Button) findViewById(R.id.rsubmit);
 
         connectionClass = new ConnectionClass();
-
         progressDialog = new ProgressDialog(this);
 
         regsubmit.setOnClickListener(new View.OnClickListener() {
@@ -49,7 +48,6 @@ public class Main4Activity extends AppCompatActivity {
     }
 
         public class Doregister extends AsyncTask<String, String, String> {
-
 
             String namestr = regname.getText().toString();
             String emailstr = regemail.getText().toString();
@@ -74,7 +72,6 @@ public class Main4Activity extends AppCompatActivity {
                         if (con == null) {
                             z = "Please check your internet connection";
                         } else {
-
                             String query = "insert into user values('" + namestr + "','" + emailstr + "','" + passstr + "')";
 
                             Statement stmt = con.createStatement();

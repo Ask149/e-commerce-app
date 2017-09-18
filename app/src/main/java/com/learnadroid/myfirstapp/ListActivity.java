@@ -26,8 +26,6 @@ import java.sql.Statement;
 
 public class ListActivity extends Fragment {
 
-    String[] itemName1 = {"ONE PLUS 5","ONE PLUS 3T","IPHONE 7+","SAMSUNG GALAXY S8+","GOOGLE PIXEL XL","LG G6","XPERIA XZ","REDMI NOTE 4","HTC 10","NOKIA 6"};
-    String[] itemName2 = {"DELL XPS 13","HP SPECTER 360","MACBOOK AIR 13","ASUS UX305LA-FB055T","HP ENVY 14-J008TX","LENOVO Z51-70","HP PAVILION 15AB032TX","ASUS X555LJXX132H","MACBOOK PRO","LENOVO YOGA 500"};
     int[] itemImage = {R.drawable.ic_menu_camera,R.drawable.ic_menu_camera,R.drawable.ic_menu_camera,R.drawable.ic_menu_camera,R.drawable.ic_menu_camera,R.drawable.ic_menu_camera,R.drawable.ic_menu_camera,R.drawable.ic_menu_camera,R.drawable.ic_menu_camera,  R.drawable.ic_menu_camera };
     ConnectionClass connectionClass;
 
@@ -47,11 +45,36 @@ public class ListActivity extends Fragment {
         try {
             if (con != null) {
                 Statement st = con.createStatement();
-                ResultSet rs = st.executeQuery("select * from product");
+                ResultSet rs;
+                Toast.makeText(getActivity(), "Category Id = "+HomeActivity.cat_id, Toast.LENGTH_SHORT).show();
+                if(HomeActivity.cat_id==1)
+                {
+                    rs = st.executeQuery("select * from product where category_id=1");
+                }
+                else if(HomeActivity.cat_id==2)
+                {
+                    rs = st.executeQuery("select * from product where category_id=2");
+                }
+                else if(HomeActivity.cat_id==3)
+                {
+                    rs = st.executeQuery("select * from product where category_id=3");
+                }
+                else if(HomeActivity.cat_id==4)
+                {
+                    rs = st.executeQuery("select * from product where category_id=4");
+                }
+                else {
+                    rs = st.executeQuery("select * from product where category_id=5");
+                }
                 ResultSetMetaData rsmd = rs.getMetaData();
                 String itemName[] = new String[10];
                 String itemPrice[] = new String[10];
                 int index=0;
+                if(rs.first())
+                {
+                    itemName[index] = rs.getString(2);
+                    itemPrice[index++] = rs.getString(4);
+                }
                 while(rs.next())
                 {
                     itemName[index] = rs.getString(2);
@@ -82,7 +105,7 @@ public class ListActivity extends Fragment {
             }
         }
         catch (Exception e) {
-            Toast.makeText(getActivity(), "Exception Generated !!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "Exception : "+e, Toast.LENGTH_SHORT).show();
         }
         return view;
     }

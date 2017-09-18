@@ -31,9 +31,10 @@ public class CategoryActivity extends Fragment {
         imageView1.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View v) {
+                  HomeActivity.cat_id=1;
                   Fragment fragment = new ListActivity();
                   FragmentTransaction ft = getFragmentManager().beginTransaction();
-                  ft.replace(R.id.content_cat,fragment);
+                  ft.replace(R.id.content_home,fragment);
                   ft.commit();
               }
           }
@@ -41,9 +42,10 @@ public class CategoryActivity extends Fragment {
         imageView2.setOnClickListener(new View.OnClickListener() {
                                           @Override
                                           public void onClick(View v) {
+                                              HomeActivity.cat_id=2;
                                               Fragment fragment = new ListActivity();
                                               FragmentTransaction ft = getFragmentManager().beginTransaction();
-                                              ft.replace(R.id.content_cat,fragment);
+                                              ft.replace(R.id.content_home,fragment);
                                               ft.commit();
                                           }
                                       }
@@ -51,9 +53,10 @@ public class CategoryActivity extends Fragment {
         imageView3.setOnClickListener(new View.OnClickListener() {
                                           @Override
                                           public void onClick(View v) {
+                                              HomeActivity.cat_id=3;
                                               Fragment fragment = new ListActivity();
                                               FragmentTransaction ft = getFragmentManager().beginTransaction();
-                                              ft.replace(R.id.content_cat,fragment);
+                                              ft.replace(R.id.content_home,fragment);
                                               ft.commit();
                                           }
                                       }
@@ -61,9 +64,10 @@ public class CategoryActivity extends Fragment {
         imageView4.setOnClickListener(new View.OnClickListener() {
                                           @Override
                                           public void onClick(View v) {
+                                              HomeActivity.cat_id=4;
                                               Fragment fragment = new ListActivity();
                                               FragmentTransaction ft = getFragmentManager().beginTransaction();
-                                              ft.replace(R.id.content_cat,fragment);
+                                              ft.replace(R.id.content_home,fragment);
                                               ft.commit();
                                           }
                                       }
@@ -71,9 +75,10 @@ public class CategoryActivity extends Fragment {
         imageView5.setOnClickListener(new View.OnClickListener() {
                                           @Override
                                           public void onClick(View v) {
+                                              HomeActivity.cat_id=5;
                                               Fragment fragment = new ListActivity();
                                               FragmentTransaction ft = getFragmentManager().beginTransaction();
-                                              ft.replace(R.id.content_cat,fragment);
+                                              ft.replace(R.id.content_home,fragment);
                                               ft.commit();
                                           }
                                       }
