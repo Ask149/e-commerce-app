@@ -9,10 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-/**
- * Created by Ashish on 09-09-2017.
- */
-
 public class CategoryActivity extends Fragment {
 
     ImageView imageView1,imageView2,imageView3,imageView4,imageView5;

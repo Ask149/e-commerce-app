@@ -10,8 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="350dp"
         android:layout_centerHorizontal="true"
-        android:adjustViewBounds="false"
-        app:srcCompat="@drawable/ic_menu_slideshow" />
+        android:adjustViewBounds="true"
+        android:cropToPadding="true" />
 
     <TextView
         android:id="@+id/detail_product_title"
@@ -28,11 +28,11 @@
         android:id="@+id/detail_product_price"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="24sp"
-        android:layout_below="@+id/detail_product_title"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/detail_product_title"
+        android:text="TextView"
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/detail_product_specs"

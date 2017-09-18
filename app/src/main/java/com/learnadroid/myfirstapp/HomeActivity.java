@@ -2,9 +2,6 @@ package com.learnadroid.myfirstapp;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.v4.app.FragmentTransaction;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,21 +11,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ListView;
-import android.widget.TextView;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
-    ListView mlistview;
-
-    String[] itemName1 = {"ONE PLUS 5","ONE PLUS 3T","IPHONE 7+","SAMSUNG GALAXY S8+","GOOGLE PIXEL XL","LG G6","XPERIA XZ","REDMI NOTE 4","HTC 10","NOKIA 6"};
-    String[] itemName2 = {"DELL XPS 13","HP SPECTER 360","MACBOOK AIR 13","ASUS UX305LA-FB055T","HP ENVY 14-J008TX","LENOVO Z51-70","HP PAVILION 15AB032TX","ASUS X555LJXX132H","MACBOOK PRO","LENOVO YOGA 500"};
-    int[] itemImage = {R.drawable.ic_menu_camera,R.drawable.ic_menu_camera,R.drawable.ic_menu_camera,R.drawable.ic_menu_camera,R.drawable.ic_menu_camera,R.drawable.ic_menu_camera,R.drawable.ic_menu_camera,R.drawable.ic_menu_camera,R.drawable.ic_menu_camera,  R.drawable.ic_menu_camera };
-
+    static public int cat_id;
+    static public int prod_id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        cat_id=1;
+        prod_id=1;
         setContentView(R.layout.activity_home);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -82,16 +74,22 @@ public class HomeActivity extends AppCompatActivity
         int id = item.getItemId();
         Fragment fragment = null;
         if (id == R.id.nav_home) {
+            cat_id=0;
             fragment = new CategoryActivity();
         } else if (id == R.id.nav_mobile) {
+            cat_id=1;
             fragment = new ListActivity();
         } else if (id == R.id.nav_laptops) {
+            cat_id=2;
             fragment = new ListActivity();
         } else if (id == R.id.nav_washingmachine) {
+            cat_id=3;
             fragment = new ListActivity();
         } else if (id == R.id.nav_refridgerators) {
+            cat_id=4;
             fragment = new ListActivity();
         } else if (id == R.id.nav_tv) {
+            cat_id=5;
             fragment = new ListActivity();
         }
         if(fragment != null) {
