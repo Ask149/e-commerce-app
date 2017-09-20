@@ -1,5 +1,6 @@
 package com.learnadroid.myfirstapp;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringDef;
@@ -12,13 +13,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.Statement;
+import java.util.List;
 
 /**
  * Created by Ashish on 09-09-2017.
@@ -26,6 +31,8 @@ import java.sql.Statement;
 
 public class ListActivity extends Fragment {
 
+    String itemName[];
+    String itemPrice[];
     int[] itemImage = {R.drawable.ic_menu_camera,R.drawable.ic_menu_camera,R.drawable.ic_menu_camera,R.drawable.ic_menu_camera,R.drawable.ic_menu_camera,R.drawable.ic_menu_camera,R.drawable.ic_menu_camera,R.drawable.ic_menu_camera,R.drawable.ic_menu_camera,  R.drawable.ic_menu_camera };
     ConnectionClass connectionClass;
 
@@ -39,14 +46,14 @@ public class ListActivity extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.content_list_item,container,false);
         ListView listView = (ListView) view.findViewById(R.id.content_list_item_list_view);
-        ArrayAdapter<String> listViewAdapter;
+//        ArrayAdapter<String> listViewAdapter;
+        CustomeAdapter customeAdapter ;
         connectionClass = new ConnectionClass();
         Connection con = connectionClass.CONN();
         try {
             if (con != null) {
                 Statement st = con.createStatement();
                 ResultSet rs;
-                Toast.makeText(getActivity(), "Category Id = "+HomeActivity.cat_id, Toast.LENGTH_SHORT).show();
                 if(HomeActivity.cat_id==1)
                 {
                     rs = st.executeQuery("select * from product where category_id=1");
@@ -66,43 +73,47 @@ public class ListActivity extends Fragment {
                 else {
                     rs = st.executeQuery("select * from product where category_id=5");
                 }
-                ResultSetMetaData rsmd = rs.getMetaData();
-                String itemName[] = new String[10];
-                String itemPrice[] = new String[10];
+//                ResultSetMetaData rsmd = rs.getMetaData();
+                itemPrice = new String[10];
+                itemName = new String[10];
                 int index=0;
                 if(rs.first())
                 {
                     itemName[index] = rs.getString(2);
                     itemPrice[index++] = rs.getString(4);
                 }
-                while(rs.next())
+                while(rs.next() && index<10)
                 {
                     itemName[index] = rs.getString(2);
                     itemPrice[index++] = rs.getString(4);
                 }
-                listViewAdapter = new ArrayAdapter<String>(
-                        getActivity(), android.R.layout.simple_list_item_1, itemName);
-                listView.setAdapter(listViewAdapter);
-                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                Fragment fragment = null;
-
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        HomeActivity.prod_id=position;
-                        fragment = new DetailActivity();
-                        if (fragment != null) {
-                            int thisid = getId();
-                            FragmentTransaction ft = getFragmentManager().beginTransaction();
-                            ft.replace(thisid, fragment);
-                            ft.commit();
-                        } else {
-                            Toast.makeText(getActivity(), "Null Fragment", Toast.LENGTH_SHORT).show();
+                customeAdapter = new CustomeAdapter(getActivity().getApplicationContext());
+//                listViewAdapter = new ArrayAdapter<String>(
+//                        getActivity(),android.R.layout.simple_list_item_1);
+//                listView.setAdapter(listViewAdapter);
+                listView.setAdapter(customeAdapter);
+                Toast.makeText(getActivity(), "Item Clicked Before !", Toast.LENGTH_SHORT).show();
+                listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
+                {
+                    Fragment fragment = null;
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            Toast.makeText(getActivity(), "Item Clicked !", Toast.LENGTH_SHORT).show();
+                            HomeActivity.prod_id=position;
+                            fragment = new DetailActivity();
+                            if (fragment != null) {
+                                int thisid = getId();
+                                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                                ft.replace(thisid, fragment);
+                                ft.commit();
+                            } else {
+                                Toast.makeText(getActivity(), "Null Fragment", Toast.LENGTH_SHORT).show();
+                            }
                         }
-                    }
-                });
-            } else {
-                Toast.makeText(getActivity(), "Please Check your Internet Connection", Toast.LENGTH_SHORT).show();
-            }
+                    });
+                } else {
+                    Toast.makeText(getActivity(), "Please Check your Internet Connection", Toast.LENGTH_SHORT).show();
+                }
         }
         catch (Exception e) {
             Toast.makeText(getActivity(), "Exception : "+e, Toast.LENGTH_SHORT).show();
@@ -113,5 +124,46 @@ public class ListActivity extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+    }
+
+    class CustomeAdapter extends ArrayAdapter<String>{
+
+        Context context;
+
+        public CustomeAdapter(Context context) {
+            super(context,R.layout.listrow);
+            this.context=context;
+        }
+
+        @Override
+        public int getCount() {
+            return itemName.length;
+        }
+
+        @Override
+        public String getItem(int position) {
+            return itemName[position];
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+
+            convertView = getActivity().getLayoutInflater().inflate(R.layout.listrow,null);
+
+            ImageView imageView = (ImageView) convertView.findViewById(R.id.list_item_image);
+            TextView textViewTitle = (TextView) convertView.findViewById(R.id.list_item_title);
+            TextView textViewPrice = (TextView) convertView.findViewById(R.id.list_item_price);
+
+            imageView.setImageResource(itemImage[position]);
+            textViewTitle.setText(itemName[position]);
+            textViewPrice.setText(itemPrice[position]);
+
+            return convertView;
+        }
     }
 }

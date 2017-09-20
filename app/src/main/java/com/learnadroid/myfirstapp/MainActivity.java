@@ -17,7 +17,7 @@ import java.sql.Statement;
 
 public class MainActivity extends AppCompatActivity  {
 
-
+    public static String user_id;
     EditText email,pass;
     Button register,login;
     ProgressDialog progressDialog;
@@ -60,7 +60,6 @@ public class MainActivity extends AppCompatActivity  {
 
     private class Dologin extends AsyncTask<String,String,String>{
 
-
         String emailstr=email.getText().toString();
         String passstr=pass.getText().toString();
         String z="";
@@ -98,6 +97,7 @@ public class MainActivity extends AppCompatActivity  {
                             if(em.equals(emailstr)&&password.equals(passstr))
                             {
                                 isSuccess=true;
+                                user_id=emailstr;
                                 z = "Login successfull";
                             }
                             else

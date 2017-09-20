@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/content_detail_layout">
 
@@ -13,46 +13,49 @@
         android:adjustViewBounds="true"
         android:cropToPadding="true"
         android:src="@drawable/hackerrank"
-        android:visibility="visible" />
+        android:visibility="visible"
+        android:contentDescription="Product Image" />
 
     <TextView
         android:id="@+id/detail_product_title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_below="@+id/detail_product_image_view"
         android:layout_centerHorizontal="true"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:textColor="#8F8F8F"
         android:textSize="30sp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/detail_product_price"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/detail_product_title"
+        android:textColor="#8F8F8F"
         android:textSize="24sp" />
 
     <TextView
         android:id="@+id/detail_product_specs"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/detail_product_price"
+        android:textColor="#8F8F8F"
         android:textSize="18sp" />
 
     <Button
         android:id="@+id/detail_buy_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
         android:layout_below="@+id/detail_product_specs"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:background="@color/colorAccent"
-        android:backgroundTint="@color/cardview_shadow_end_color"
-        android:elevation="10dp"
-        android:text="Order" />
+        android:layout_marginTop="8dp"
+        android:background="#24c4b9"
+        android:text="Order"
+        android:textColor="#0b0b0b" />
 
 </RelativeLayout>

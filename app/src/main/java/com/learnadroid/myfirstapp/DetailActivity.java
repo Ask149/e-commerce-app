@@ -17,9 +17,6 @@ import java.sql.Statement;
 
 public class DetailActivity extends Fragment {
     ConnectionClass connectionClass;
-    String[] itemName ;
-    String[] itemPrice;
-    String[] itemSpec ;
     TextView myName,myPrice,mySpec;
    // ViewPager viewPager;
    // DetailActivityAdapter detailActivityAdapter;
@@ -41,9 +38,9 @@ public class DetailActivity extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         connectionClass = new ConnectionClass();
         Connection con = connectionClass.CONN();
-        itemSpec = new String[10];
-        itemName = new String[10];
-        itemPrice = new String[10];
+        String itemName ="" ;
+        String itemPrice ="";
+        String itemSpec ="";
 //        viewPager = (ViewPager) view.findViewById(R.id.view_pager);
 //        detailActivityAdapter = new DetailActivityAdapter(this.getContext());
         myName = (TextView) view.findViewById(R.id.detail_product_title);
@@ -53,33 +50,40 @@ public class DetailActivity extends Fragment {
             Statement st = con.createStatement();
             ResultSet rs ;
             if(HomeActivity.cat_id==1)
+            {
                 rs = st.executeQuery("select * from product where category_id=1");
+            }
             else if(HomeActivity.cat_id==2)
+            {
                 rs = st.executeQuery("select * from product where category_id=2");
+            }
             else if(HomeActivity.cat_id==3)
+            {
                 rs = st.executeQuery("select * from product where category_id=3");
+            }
             else if(HomeActivity.cat_id==4)
+            {
                 rs = st.executeQuery("select * from product where category_id=4");
-            else
+            }
+            else {
                 rs = st.executeQuery("select * from product where category_id=5");
+            }
             ResultSetMetaData rsmd = rs.getMetaData();
             int index=0;
-            if(rs.first())
+            while(rs.next() && index<10)
             {
-                itemName[index] = rs.getString(2);
-                itemPrice[index] = rs.getString(4);
-                itemSpec[index++] = rs.getString(3);
-            }
-            while(rs.next())
-            {
-                itemName[index] += rs.getString(2);
-                itemPrice[index] += rs.getString(4);
-                itemSpec[index++] += rs.getString(3);
+                if(index==HomeActivity.prod_id)
+                {
+                    itemName= rs.getString(2);
+                    itemPrice = rs.getString(4);
+                    itemSpec = rs.getString(3);
+                }
+                index++;
             }
             Toast.makeText(getActivity(),"PRODUCT DETAILS",Toast.LENGTH_SHORT).show();
-            myName.setText(itemName[HomeActivity.prod_id]);
-            myPrice.setText(itemPrice[HomeActivity.prod_id]);
-            mySpec.setText(itemSpec[HomeActivity.prod_id]);
+            myName.setText(itemName);
+            myPrice.setText(itemPrice);
+            mySpec.setText(itemSpec);
         }
         catch (Exception e){
             Toast.makeText(getActivity(),"EXCEPTION GENERATED "+e,Toast.LENGTH_SHORT).show();

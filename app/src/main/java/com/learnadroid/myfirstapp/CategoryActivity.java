@@ -31,11 +31,11 @@ public class CategoryActivity extends Fragment {
         imageView1.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View v) {
-                  HomeActivity.cat_id=1;
-                  Fragment fragment = new ListActivity();
-                  FragmentTransaction ft = getFragmentManager().beginTransaction();
-                  ft.replace(R.id.content_home,fragment);
-                  ft.commit();
+                                              HomeActivity.cat_id=1;
+                                              Fragment fragment = new ListActivity();
+                                              FragmentTransaction ft = getFragmentManager().beginTransaction();
+                                              ft.replace(R.id.content_home,fragment);
+                                              ft.commit();
               }
           }
         );
