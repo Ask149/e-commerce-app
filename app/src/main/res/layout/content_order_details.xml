@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#080808"
+    android:weightSum="1">
+
+    <ScrollView
+    android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1.11">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="0dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+            <TextView
+                android:id="@+id/order_address_detail_title"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="20dp"
+                android:layout_weight="0.14"
+                android:fontFamily="cursive"
+                android:gravity="center|fill"
+                android:paddingLeft="5dp"
+                android:text="Address details"
+                android:textColor="#ffffff"
+                android:textSize="24dp" />
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="#1e9c9b9b"
+                android:textColorHint="#ffffff">
+
+                <EditText
+                    android:id="@+id/order_address_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="Enter name here"
+                    android:hint="Name"
+                    android:inputType="textPersonName"
+                    android:textColor="#ffffff" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="#1e9c9b9b"
+                android:textColorHint="#ffffff">
+
+                <EditText
+                    android:id="@+id/order_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="Enter here your address"
+                    android:hint="Address"
+                    android:inputType="textPostalAddress"
+                    android:textColor="#ffffff" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="#1e9c9b9b"
+                android:textColorHint="#ffffff">
+
+                <EditText
+                    android:id="@+id/order_state"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="Contact Number Here"
+                    android:hint="Contact no"
+                    android:inputType="phone"
+                    android:textColor="#ffffff" />
+            </android.support.design.widget.TextInputLayout>
+
+            <TextView
+                android:id="@+id/order_quantity_detail_title"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="20dp"
+                android:layout_weight="0.14"
+                android:fontFamily="cursive"
+                android:gravity="center|fill"
+                android:paddingLeft="5dp"
+                android:text="Quantity details"
+                android:textColor="#ffffff"
+                android:textSize="24dp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/order_quantity_count"
+                    android:layout_width="50dp"
+                    android:layout_height="40dp"
+                    android:layout_toEndOf="@+id/order_quantity_title"
+                    android:layout_toRightOf="@+id/order_quantity_title"
+                    android:contentDescription="Enter quantity here"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:text="1"
+                    android:textColor="@android:color/white"
+                    tools:text="1" />
+
+                <TextView
+                    android:id="@+id/order_quantity_title"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
+                    android:gravity="left|center"
+                    android:text="Quantity"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    tools:text="Quantity" />
+
+                <TextView
+                    android:id="@+id/order_price_no"
+                    android:layout_width="50dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/order_quantity_count"
+                    android:layout_toEndOf="@+id/order_quantity_title"
+                    android:layout_toRightOf="@+id/order_quantity_title"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    tools:text="0" />
+
+                <TextView
+                    android:id="@+id/order_price_title"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/order_quantity_title"
+                    android:layout_toLeftOf="@+id/order_price_no"
+                    android:layout_toStartOf="@+id/order_price_no"
+                    android:gravity="left|center"
+                    android:text="Price"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    tools:text="Price" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

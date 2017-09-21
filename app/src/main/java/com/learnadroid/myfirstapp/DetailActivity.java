@@ -3,10 +3,12 @@ package com.learnadroid.myfirstapp;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,6 +19,7 @@ import java.sql.Statement;
 
 public class DetailActivity extends Fragment {
     ConnectionClass connectionClass;
+    Button order_button;
     TextView myName,myPrice,mySpec;
    // ViewPager viewPager;
    // DetailActivityAdapter detailActivityAdapter;
@@ -43,6 +46,7 @@ public class DetailActivity extends Fragment {
         String itemSpec ="";
 //        viewPager = (ViewPager) view.findViewById(R.id.view_pager);
 //        detailActivityAdapter = new DetailActivityAdapter(this.getContext());
+        order_button = (Button) view.findViewById(R.id.detail_buy_button);
         myName = (TextView) view.findViewById(R.id.detail_product_title);
         myPrice = (TextView) view.findViewById(R.id.detail_product_price);
         mySpec = (TextView) view.findViewById(R.id.detail_product_specs);
@@ -84,6 +88,16 @@ public class DetailActivity extends Fragment {
             myName.setText(itemName);
             myPrice.setText(itemPrice);
             mySpec.setText(itemSpec);
+            order_button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Fragment fragment = new OrderDetailActivity();
+                        FragmentTransaction ft = getFragmentManager().beginTransaction();
+                        ft.replace(R.id.content_detail_layout,fragment);
+                        ft.commit();
+                    }
+                }
+            );
         }
         catch (Exception e){
             Toast.makeText(getActivity(),"EXCEPTION GENERATED "+e,Toast.LENGTH_SHORT).show();
