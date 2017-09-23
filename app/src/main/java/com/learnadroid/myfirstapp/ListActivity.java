@@ -36,24 +36,22 @@ public class ListActivity extends Fragment {
     int[] itemImage = {R.drawable.ic_menu_camera,R.drawable.ic_menu_camera,R.drawable.ic_menu_camera,R.drawable.ic_menu_camera,R.drawable.ic_menu_camera,R.drawable.ic_menu_camera,R.drawable.ic_menu_camera,R.drawable.ic_menu_camera,R.drawable.ic_menu_camera,  R.drawable.ic_menu_camera };
     ConnectionClass connectionClass;
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.content_list_item,container,false);
         ListView listView = (ListView) view.findViewById(R.id.content_list_item_list_view);
-//        ArrayAdapter<String> listViewAdapter;
+        HomeActivity.fragment_no=3;
         CustomeAdapter customeAdapter ;
+
         connectionClass = new ConnectionClass();
         Connection con = connectionClass.CONN();
+
         try {
             if (con != null) {
                 Statement st = con.createStatement();
                 ResultSet rs;
+
                 if(HomeActivity.cat_id==1)
                 {
                     rs = st.executeQuery("select * from product where category_id=1");
@@ -91,18 +89,18 @@ public class ListActivity extends Fragment {
 //                listViewAdapter = new ArrayAdapter<String>(
 //                        getActivity(),android.R.layout.simple_list_item_1);
 //                listView.setAdapter(listViewAdapter);
+
                 listView.setAdapter(customeAdapter);
-                Toast.makeText(getActivity(), "Item Clicked Before !", Toast.LENGTH_SHORT).show();
                 listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
                 {
                     Fragment fragment = null;
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            Toast.makeText(getActivity(), "Item Clicked !", Toast.LENGTH_SHORT).show();
-                            HomeActivity.prod_id=position;
-                            fragment = new DetailActivity();
-                            if (fragment != null) {
-                                int thisid = getId();
+                        HomeActivity.prod_id = (((HomeActivity.cat_id-1)*10)+position+1);
+                        HomeActivity.position = position;
+                        fragment = new DetailActivity();
+                        if (fragment != null) {
+                            int thisid = getId();
                                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                                 ft.replace(thisid, fragment);
                                 ft.commit();
@@ -126,10 +124,9 @@ public class ListActivity extends Fragment {
         super.onViewCreated(view, savedInstanceState);
     }
 
-    class CustomeAdapter extends ArrayAdapter<String>{
+    public class CustomeAdapter extends ArrayAdapter<String>{
 
         Context context;
-
         public CustomeAdapter(Context context) {
             super(context,R.layout.listrow);
             this.context=context;

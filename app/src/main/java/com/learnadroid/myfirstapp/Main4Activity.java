@@ -93,8 +93,6 @@ public class Main4Activity extends AppCompatActivity {
             protected void onPostExecute(String s) {
 
                 Toast.makeText(getBaseContext(), "" + z, Toast.LENGTH_LONG).show();
-
-
                 if (isSuccess) {
                     Intent mIntent =new Intent(Main4Activity.this, HomeActivity.class);
                     mIntent.putExtra("name",regname.getText().toString());

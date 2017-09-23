@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
+import android.transition.Visibility;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,6 +47,8 @@ public class DetailActivity extends Fragment {
         String itemSpec ="";
 //        viewPager = (ViewPager) view.findViewById(R.id.view_pager);
 //        detailActivityAdapter = new DetailActivityAdapter(this.getContext());
+        Toast.makeText(getActivity(),"Cat id : "+HomeActivity.cat_id,Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(),"Product id : "+HomeActivity.prod_id,Toast.LENGTH_SHORT).show();
         order_button = (Button) view.findViewById(R.id.detail_buy_button);
         myName = (TextView) view.findViewById(R.id.detail_product_title);
         myPrice = (TextView) view.findViewById(R.id.detail_product_price);
@@ -76,7 +79,7 @@ public class DetailActivity extends Fragment {
             int index=0;
             while(rs.next() && index<10)
             {
-                if(index==HomeActivity.prod_id)
+                if(index==HomeActivity.position)
                 {
                     itemName= rs.getString(2);
                     itemPrice = rs.getString(4);
@@ -98,6 +101,8 @@ public class DetailActivity extends Fragment {
                     }
                 }
             );
+            HomeActivity.fragment_no=4;
+            //   order_button.setVisibility(View.INVISIBLE);
         }
         catch (Exception e){
             Toast.makeText(getActivity(),"EXCEPTION GENERATED "+e,Toast.LENGTH_SHORT).show();

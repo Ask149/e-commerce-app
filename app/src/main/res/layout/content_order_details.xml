@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#080808"
     android:weightSum="1">
 
     <ScrollView
     android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1.11">
+        android:layout_marginBottom="30dp"
+        android:layout_height="608dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -152,6 +152,31 @@
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
                     tools:text="Price" />
+
+                <TextView
+                    android:id="@+id/order_total_price_title"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_toEndOf="@+id/order_quantity_count"
+                    android:layout_toRightOf="@+id/order_quantity_count"
+                    android:gravity="center"
+                    android:text="Total Price"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/order_total_price"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@+id/order_total_price_title"
+                    android:layout_toRightOf="@+id/order_total_price_title"
+                    android:textColor="@android:color/white"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textSize="18sp" />
+
             </RelativeLayout>
         </LinearLayout>
     </ScrollView>

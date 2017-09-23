@@ -22,6 +22,7 @@ public class CategoryActivity extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        HomeActivity.fragment_no=2;
         getActivity().setTitle("Category");
         imageView1 = (ImageView) view.findViewById(R.id.cat_mobile_button);
         imageView2 = (ImageView) view.findViewById(R.id.cat_laptop_button);

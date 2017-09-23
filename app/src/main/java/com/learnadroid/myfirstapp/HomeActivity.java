@@ -1,5 +1,6 @@
 package com.learnadroid.myfirstapp;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
@@ -14,13 +15,16 @@ import android.view.MenuItem;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    static public int fragment_no;
     static public int cat_id;
     static public int prod_id;
+    static public int position;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         cat_id=1;
         prod_id=1;
+        fragment_no=1;
         setContentView(R.layout.activity_home);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -41,7 +45,28 @@ public class HomeActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+//            super.onBackPressed();
+            Fragment fragment = null;
+            if(fragment_no==1)
+                super.onBackPressed();
+            else if(fragment_no==2)
+            {
+            }
+            else if(fragment_no==3)
+            {
+                fragment = new CategoryActivity();
+            }
+            else if(fragment_no==4)
+            {
+                fragment = new ListActivity();
+            }
+            else {
+                fragment = new DetailActivity();
+            }
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.content_home,fragment);
+            ft.commit();
+
         }
     }
 

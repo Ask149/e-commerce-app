@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity  {
         String passstr=pass.getText().toString();
         String z="";
         boolean isSuccess=false;
-        String nm,em,password;
+        String em,password;
 
         @Override
         protected void onPreExecute() {
