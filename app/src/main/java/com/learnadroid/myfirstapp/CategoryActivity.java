@@ -32,57 +32,57 @@ public class CategoryActivity extends Fragment {
         imageView1.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View v) {
-                                              HomeActivity.cat_id=1;
-                                              Fragment fragment = new ListActivity();
-                                              FragmentTransaction ft = getFragmentManager().beginTransaction();
-                                              ft.replace(R.id.content_home,fragment);
-                                              ft.commit();
+              HomeActivity.cat_id=1;
+              Fragment fragment = new ListActivity();
+              FragmentTransaction ft = getFragmentManager().beginTransaction();
+              ft.replace(R.id.content_home,fragment);
+              ft.commit();
               }
           }
         );
         imageView2.setOnClickListener(new View.OnClickListener() {
                                           @Override
                                           public void onClick(View v) {
-                                              HomeActivity.cat_id=2;
-                                              Fragment fragment = new ListActivity();
-                                              FragmentTransaction ft = getFragmentManager().beginTransaction();
-                                              ft.replace(R.id.content_home,fragment);
-                                              ft.commit();
-                                          }
+              HomeActivity.cat_id=2;
+              Fragment fragment = new ListActivity();
+              FragmentTransaction ft = getFragmentManager().beginTransaction();
+              ft.replace(R.id.content_home,fragment);
+              ft.commit();
+          }
                                       }
         );
         imageView3.setOnClickListener(new View.OnClickListener() {
                                           @Override
                                           public void onClick(View v) {
-                                              HomeActivity.cat_id=3;
-                                              Fragment fragment = new ListActivity();
-                                              FragmentTransaction ft = getFragmentManager().beginTransaction();
-                                              ft.replace(R.id.content_home,fragment);
-                                              ft.commit();
-                                          }
-                                      }
+              HomeActivity.cat_id=3;
+              Fragment fragment = new ListActivity();
+              FragmentTransaction ft = getFragmentManager().beginTransaction();
+              ft.replace(R.id.content_home,fragment);
+              ft.commit();
+              }
+          }
         );
         imageView4.setOnClickListener(new View.OnClickListener() {
                                           @Override
                                           public void onClick(View v) {
-                                              HomeActivity.cat_id=4;
-                                              Fragment fragment = new ListActivity();
-                                              FragmentTransaction ft = getFragmentManager().beginTransaction();
-                                              ft.replace(R.id.content_home,fragment);
-                                              ft.commit();
-                                          }
-                                      }
+                  HomeActivity.cat_id=4;
+                  Fragment fragment = new ListActivity();
+                  FragmentTransaction ft = getFragmentManager().beginTransaction();
+                  ft.replace(R.id.content_home,fragment);
+                  ft.commit();
+              }
+          }
         );
         imageView5.setOnClickListener(new View.OnClickListener() {
                                           @Override
                                           public void onClick(View v) {
-                                              HomeActivity.cat_id=5;
-                                              Fragment fragment = new ListActivity();
-                                              FragmentTransaction ft = getFragmentManager().beginTransaction();
-                                              ft.replace(R.id.content_home,fragment);
-                                              ft.commit();
-                                          }
-                                      }
+                  HomeActivity.cat_id=5;
+                  Fragment fragment = new ListActivity();
+                  FragmentTransaction ft = getFragmentManager().beginTransaction();
+                  ft.replace(R.id.content_home,fragment);
+                  ft.commit();
+              }
+          }
         );
     }
 }

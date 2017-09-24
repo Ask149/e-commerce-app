@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/order_item_image"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:clickable="false"
+        android:contentDescription="Product Image"
+        android:focusable="false"
+        app:srcCompat="@drawable/hackerrank" />
+
+    <TextView
+        android:id="@+id/order_item_title"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:clickable="false"
+        android:ems="10"
+        android:focusable="false"
+        android:gravity="left|center"
+        android:text="Product Name"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/order_item_image"
+        android:layout_toEndOf="@+id/order_item_image" />
+
+    <TextView
+        android:id="@+id/order_item_price"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/order_item_title"
+        android:layout_toRightOf="@+id/order_item_title"
+        android:clickable="false"
+        android:ems="10"
+        android:focusable="false"
+        android:gravity="left|center"
+        android:text="Price"
+        android:textColor="#FFFFFF" />
+
+    <RatingBar
+        android:id="@+id/order_row_review"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/order_item_title"
+        android:layout_toEndOf="@+id/order_item_image"
+        android:layout_toRightOf="@+id/order_item_image"
+        android:isIndicator="true"
+        android:numStars="5" />
+
+    <CheckedTextView
+        android:id="@+id/order_row_check_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checkMarkTint="#7FFF7F"
+        android:checked="true"
+        android:gravity="center"
+        android:text="Order Successfully Placed"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:layout_below="@+id/order_item_contact_no"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/order_item_person_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/order_item_image"
+        android:text="Person Name"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/order_item_contact_no"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/order_item_person_name"
+        android:text="Contact Number"
+        android:textSize="18sp" />
+
+</RelativeLayout>

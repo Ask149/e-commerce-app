@@ -19,6 +19,7 @@ public class HomeActivity extends AppCompatActivity
     static public int cat_id;
     static public int prod_id;
     static public int position;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

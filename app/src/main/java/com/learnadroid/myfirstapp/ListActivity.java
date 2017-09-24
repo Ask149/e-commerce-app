@@ -25,10 +25,6 @@ import java.sql.ResultSetMetaData;
 import java.sql.Statement;
 import java.util.List;
 
-/**
- * Created by Ashish on 09-09-2017.
- */
-
 public class ListActivity extends Fragment {
 
     String itemName[];
@@ -43,7 +39,6 @@ public class ListActivity extends Fragment {
         ListView listView = (ListView) view.findViewById(R.id.content_list_item_list_view);
         HomeActivity.fragment_no=3;
         CustomeAdapter customeAdapter ;
-
         connectionClass = new ConnectionClass();
         Connection con = connectionClass.CONN();
 
@@ -51,27 +46,16 @@ public class ListActivity extends Fragment {
             if (con != null) {
                 Statement st = con.createStatement();
                 ResultSet rs;
+                rs = st.executeQuery("select * from product where category_id ="+HomeActivity.cat_id);
 
-                if(HomeActivity.cat_id==1)
-                {
-                    rs = st.executeQuery("select * from product where category_id=1");
-                }
-                else if(HomeActivity.cat_id==2)
-                {
-                    rs = st.executeQuery("select * from product where category_id=2");
-                }
-                else if(HomeActivity.cat_id==3)
-                {
-                    rs = st.executeQuery("select * from product where category_id=3");
-                }
-                else if(HomeActivity.cat_id==4)
-                {
-                    rs = st.executeQuery("select * from product where category_id=4");
-                }
-                else {
-                    rs = st.executeQuery("select * from product where category_id=5");
-                }
-//                ResultSetMetaData rsmd = rs.getMetaData();
+//              ResultSetMetaData rsmd = rs.getMetaData();
+
+                ResultSet r;
+                Statement st2 = con.createStatement();
+                r=st2.executeQuery("select * from category where category_id="+HomeActivity.cat_id);
+                if(r.first())
+                    getActivity().setTitle(r.getString(2));
+
                 itemPrice = new String[10];
                 itemName = new String[10];
                 int index=0;
@@ -87,7 +71,7 @@ public class ListActivity extends Fragment {
                 }
                 customeAdapter = new CustomeAdapter(getActivity().getApplicationContext());
 //                listViewAdapter = new ArrayAdapter<String>(
-//                        getActivity(),android.R.layout.simple_list_item_1);
+//                getActivity(),android.R.layout.simple_list_item_1);
 //                listView.setAdapter(listViewAdapter);
 
                 listView.setAdapter(customeAdapter);

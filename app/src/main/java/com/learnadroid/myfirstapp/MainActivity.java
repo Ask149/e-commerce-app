@@ -17,7 +17,7 @@ import java.sql.Statement;
 
 public class MainActivity extends AppCompatActivity  {
 
-    public static String user_id;
+    static public String user_id;
     EditText email,pass;
     Button register,login;
     ProgressDialog progressDialog;

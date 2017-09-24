@@ -52,6 +52,7 @@ public class Main4Activity extends AppCompatActivity {
             String namestr = regname.getText().toString();
             String emailstr = regemail.getText().toString();
             String passstr = regpass.getText().toString();
+
             String z = "";
             boolean isSuccess = false;
 
@@ -64,6 +65,7 @@ public class Main4Activity extends AppCompatActivity {
             @Override
             protected String doInBackground(String... params) {
 
+                MainActivity.user_id = emailstr;
                 if (namestr.trim().equals("") || emailstr.trim().equals("") || passstr.trim().equals(""))
                     z = "Please enter all fields....";
                 else {
