@@ -52,6 +52,7 @@ public class HomeActivity extends AppCompatActivity
                 super.onBackPressed();
             else if(fragment_no==2)
             {
+                fragment = new Fragment();
             }
             else if(fragment_no==3)
             {
@@ -61,8 +62,13 @@ public class HomeActivity extends AppCompatActivity
             {
                 fragment = new ListActivity();
             }
-            else {
+            else if(fragment_no==5)
+            {
                 fragment = new DetailActivity();
+            }
+            else
+            {
+                fragment = new ListActivity();
             }
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.content_home,fragment);

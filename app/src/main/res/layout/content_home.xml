@@ -5,8 +5,7 @@
     android:id="@+id/content_home"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#A0A0A0"
-    android:backgroundTint="#0A0A0A"
+    android:background="@drawable/gradient"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.learnadroid.myfirstapp.HomeActivity"
     tools:showIn="@layout/app_bar_home">

@@ -2,6 +2,7 @@ package com.learnadroid.myfirstapp;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringDef;
 import android.support.v4.app.Fragment;
@@ -48,8 +49,6 @@ public class ListActivity extends Fragment {
                 ResultSet rs;
                 rs = st.executeQuery("select * from product where category_id ="+HomeActivity.cat_id);
 
-//              ResultSetMetaData rsmd = rs.getMetaData();
-
                 ResultSet r;
                 Statement st2 = con.createStatement();
                 r=st2.executeQuery("select * from category where category_id="+HomeActivity.cat_id);
@@ -70,9 +69,6 @@ public class ListActivity extends Fragment {
                     itemPrice[index++] = rs.getString(4);
                 }
                 customeAdapter = new CustomeAdapter(getActivity().getApplicationContext());
-//                listViewAdapter = new ArrayAdapter<String>(
-//                getActivity(),android.R.layout.simple_list_item_1);
-//                listView.setAdapter(listViewAdapter);
 
                 listView.setAdapter(customeAdapter);
                 listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
@@ -132,7 +128,7 @@ public class ListActivity extends Fragment {
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(int position, View convertView, @NonNull ViewGroup parent) {
 
             convertView = getActivity().getLayoutInflater().inflate(R.layout.listrow,null);
 

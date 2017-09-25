@@ -3,11 +3,12 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/content_order_list_layout">
+
     <ListView
+        android:id="@+id/content_orders_list_view2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/content_orders_list_view"
+        android:clickable="false"
         android:focusable="false"
-        android:clickable="false">
-        </ListView>
+        android:visibility="visible"/>
 </LinearLayout>

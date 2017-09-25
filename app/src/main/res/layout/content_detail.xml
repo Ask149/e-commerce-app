@@ -24,7 +24,7 @@
         android:layout_below="@+id/detail_product_image_view"
         android:layout_centerHorizontal="true"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        android:textColor="#8F8F8F"
+        android:textColor="#000000"
         android:textSize="30sp"
         android:textStyle="bold"
         tools:text="Title" />
@@ -36,7 +36,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/detail_product_title"
-        android:textColor="#8F8F8F"
+        android:textColor="#252525"
         android:textSize="24sp"
         tools:text="Cost" />
 
@@ -47,7 +47,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/detail_product_price"
-        android:textColor="#8F8F8F"
+        android:textColor="#373737"
         android:textSize="18sp"
         tools:text="Description" />
 
@@ -58,7 +58,7 @@
         android:layout_below="@+id/detail_product_specs"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="8dp"
-        android:background="#24c4b9"
+        android:background="#ff7f00"
         android:text="Buy Now"
         android:textColor="#0b0b0b" />
 

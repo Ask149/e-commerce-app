@@ -22,8 +22,6 @@ public class DetailActivity extends Fragment {
     ConnectionClass connectionClass;
     Button order_button;
     TextView myName,myPrice,mySpec;
-   // ViewPager viewPager;
-   // DetailActivityAdapter detailActivityAdapter;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -46,10 +44,8 @@ public class DetailActivity extends Fragment {
         String itemName ="" ;
         String itemPrice ="";
         String itemSpec ="";
-//        viewPager = (ViewPager) view.findViewById(R.id.view_pager);
-//        detailActivityAdapter = new DetailActivityAdapter(this.getContext());
-        Toast.makeText(getActivity(),"Cat id : "+HomeActivity.cat_id,Toast.LENGTH_SHORT).show();
-        Toast.makeText(getActivity(),"Product id : "+HomeActivity.prod_id,Toast.LENGTH_SHORT).show();
+        HomeActivity.fragment_no=4;
+
         order_button = (Button) view.findViewById(R.id.detail_buy_button);
         myName = (TextView) view.findViewById(R.id.detail_product_title);
         myPrice = (TextView) view.findViewById(R.id.detail_product_price);
@@ -69,24 +65,17 @@ public class DetailActivity extends Fragment {
             myName.setText(itemName);
             myPrice.setText(itemPrice);
             mySpec.setText(itemSpec);
-            if(getActivity().getTitle().toString()=="Product Details") {
-                order_button.setOnClickListener(new View.OnClickListener() {
+            order_button.setOnClickListener(new View.OnClickListener() {
                                                     @Override
                                                     public void onClick(View v) {
-                                                        Fragment fragment = new OrderDetailActivity();
-                                                        FragmentTransaction ft = getFragmentManager().beginTransaction();
-                                                        ft.replace(R.id.content_detail_layout, fragment);
-                                                        ft.commit();
-                                                    }
-                                                }
-                );
-            }
-            else
-            {
-                Toast.makeText(getActivity(),"You are on order page",Toast.LENGTH_SHORT).show();
-            }
-            HomeActivity.fragment_no=4;
-            //   order_button.setVisibility(View.INVISIBLE);
+                        Fragment fragment = new OrderDetailActivity();
+                        FragmentTransaction ft = getFragmentManager().beginTransaction();
+                        ft.replace(R.id.content_home, fragment);
+                        ft.addToBackStack(null);
+                        ft.commit();
+                    }
+                }
+            );
         }
         catch (Exception e){
             Toast.makeText(getActivity(),"EXCEPTION GENERATED "+e,Toast.LENGTH_SHORT).show();

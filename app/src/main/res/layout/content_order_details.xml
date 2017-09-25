@@ -4,13 +4,12 @@
     android:id="@+id/content_order_details"
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#080808"
     android:weightSum="1">
 
     <ScrollView
-    android:layout_width="match_parent"
-        android:layout_marginBottom="30dp"
-        android:layout_height="608dp">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="30dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -26,19 +25,18 @@
                 android:layout_height="40dp"
                 android:layout_marginBottom="20dp"
                 android:layout_weight="0.14"
-                android:fontFamily="cursive"
                 android:gravity="center|fill"
                 android:paddingLeft="5dp"
                 android:text="Address details"
-                android:textColor="#ffffff"
-                android:textSize="24dp" />
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textStyle="bold" />
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:background="#1e9c9b9b"
-                android:textColorHint="#ffffff">
+                android:textColorHint="#888888">
 
                 <EditText
                     android:id="@+id/order_address_name"
@@ -47,7 +45,8 @@
                     android:contentDescription="Enter name here"
                     android:hint="Name"
                     android:inputType="textPersonName"
-                    android:textColor="#ffffff" />
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -55,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:background="#1e9c9b9b"
-                android:textColorHint="#ffffff">
+                android:textColorHint="#888888">
 
                 <EditText
                     android:id="@+id/order_address"
@@ -64,7 +63,8 @@
                     android:contentDescription="Enter here your address"
                     android:hint="Address"
                     android:inputType="textPostalAddress"
-                    android:textColor="#ffffff" />
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -72,7 +72,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:background="#1e9c9b9b"
-                android:textColorHint="#ffffff">
+                android:textColorHint="#888888">
 
                 <EditText
                     android:id="@+id/order_contact_no"
@@ -81,7 +81,8 @@
                     android:contentDescription="Contact Number Here"
                     android:hint="Contact no"
                     android:inputType="phone"
-                    android:textColor="#ffffff" />
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF" />
             </android.support.design.widget.TextInputLayout>
 
             <TextView
@@ -90,12 +91,12 @@
                 android:layout_height="40dp"
                 android:layout_marginBottom="20dp"
                 android:layout_weight="0.14"
-                android:fontFamily="cursive"
                 android:gravity="center|fill"
                 android:paddingLeft="5dp"
                 android:text="Quantity details"
-                android:textColor="#ffffff"
-                android:textSize="24dp" />
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textStyle="bold" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -111,7 +112,7 @@
                     android:gravity="center"
                     android:inputType="number"
                     android:text="1"
-                    android:textColor="@android:color/white"
+                    android:textColor="#FFFFFF"
                     tools:text="1" />
 
                 <TextView
@@ -124,7 +125,7 @@
                     android:layout_marginStart="10dp"
                     android:gravity="left|center"
                     android:text="Quantity"
-                    android:textColor="@android:color/white"
+                    android:textColor="#555555"
                     android:textSize="18sp"
                     tools:text="Quantity" />
 
@@ -137,7 +138,8 @@
                     android:layout_toRightOf="@+id/order_quantity_title"
                     android:gravity="center"
                     android:text="0"
-                    android:textColor="@android:color/white"
+                    android:textAlignment="center"
+                    android:textColor="#555555"
                     android:textSize="18sp"
                     tools:text="0" />
 
@@ -150,7 +152,7 @@
                     android:layout_toStartOf="@+id/order_price_no"
                     android:gravity="left|center"
                     android:text="Price"
-                    android:textColor="@android:color/white"
+                    android:textColor="#555555"
                     android:textSize="18sp"
                     tools:text="Price" />
 
@@ -163,20 +165,20 @@
                     android:layout_toRightOf="@+id/order_quantity_count"
                     android:gravity="center"
                     android:text="Total Price"
-                    android:textColor="@android:color/white"
+                    android:textColor="#555555"
                     android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/order_total_price"
                     android:layout_width="100dp"
                     android:layout_height="80dp"
+                    android:layout_alignParentTop="true"
                     android:layout_toEndOf="@+id/order_total_price_title"
                     android:layout_toRightOf="@+id/order_total_price_title"
                     android:gravity="center"
                     android:text="0"
-                    android:textColor="@android:color/white"
-                    android:textSize="18sp"
-                    android:layout_alignParentTop="true" />
+                    android:textColor="#555555"
+                    android:textSize="18sp" />
 
                 <Button
                     android:id="@+id/order_detail_buy_button"
@@ -188,7 +190,7 @@
                     android:layout_below="@+id/order_price_no"
                     android:layout_marginTop="7dp"
                     android:layout_weight="0.14"
-                    android:background="#00AAFF"
+                    android:background="#FF7F00"
                     android:text="Purchase"
                     android:textSize="18sp" />
             </RelativeLayout>

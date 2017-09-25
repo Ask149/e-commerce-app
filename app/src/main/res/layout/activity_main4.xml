@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#000000"
     tools:context="com.learnadroid.myfirstapp.Main4Activity">
 
     <LinearLayout
@@ -19,19 +18,17 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:text="REGISTER"
-            android:textSize="40dp"
-            android:gravity="center"
-            android:textColor="#ffffff"
-            android:fontFamily="cursive"
             android:layout_marginBottom="20dp"
-            />
+            android:gravity="center"
+            android:text="REGISTER"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textStyle="bold" />
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:background="#1e9c9b9b"
-            android:textColorHint="#ffffff">
+            android:textColorHint="#7F7F7F">
 
             <EditText
                 android:id="@+id/rname"
@@ -39,16 +36,16 @@
                 android:layout_height="wrap_content"
                 android:hint="Name"
                 android:inputType="textPersonName"
-                android:singleLine="true"
-                android:textColor="#ffffff" />
+                android:textAlignment="center"
+                android:textColor="#FFFFFF" />
+
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:background="#1e9c9b9b"
-            android:textColorHint="#ffffff">
+            android:textColorHint="#7F7F7F">
 
             <EditText
                 android:id="@+id/remail"
@@ -56,15 +53,17 @@
                 android:layout_height="wrap_content"
                 android:hint="Email"
                 android:inputType="textEmailAddress"
-                android:singleLine="true"
-                android:textColor="#ffffff" />
+                android:textAlignment="center"
+                android:textColor="#FFFFFF" />
+
         </android.support.design.widget.TextInputLayout>
+
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:background="#1e9c9b9b"
-            android:textColorHint="#ffffff">
+            android:textColorHint="#7F7F7F">
 
             <EditText
                 android:id="@+id/rpass"
@@ -73,20 +72,19 @@
                 android:hint="Password"
                 android:inputType="textPassword"
                 android:singleLine="true"
-                android:textColor="#ffffff" />
+                android:textAlignment="center"
+                android:textColor="#FFFFFF" />
         </android.support.design.widget.TextInputLayout>
 
         <Button
+            android:id="@+id/rsubmit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Submit"
             android:layout_marginTop="30dp"
-            android:background="#24c4b9"
-            android:textColor="#0b0b0b"
-            android:id="@+id/rsubmit"
-            />
-
-
+            android:background="#FF7F00"
+            android:text="Submit"
+            android:textColor="#0b0b0b" />
 
     </LinearLayout>
+
 </LinearLayout>

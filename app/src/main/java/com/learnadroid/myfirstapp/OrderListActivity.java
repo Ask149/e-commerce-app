@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 public class OrderListActivity extends Fragment {
@@ -33,10 +35,8 @@ public class OrderListActivity extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.content_order_list,container,false);
-        ListView listView = (ListView) view.findViewById(R.id.content_orders_list_view);
         getActivity().setTitle("Orders List");
         HomeActivity.fragment_no=3;
-        CustomeOrderAdapter customeOrderAdapter ;
         connectionClass = new ConnectionClass();
         Connection con = connectionClass.CONN();
 
@@ -52,7 +52,7 @@ public class OrderListActivity extends Fragment {
 
                 while(rs.next())
                     count++;
-                Toast.makeText(getActivity(), "Number of orders : "+count, Toast.LENGTH_SHORT).show();
+
                 orderItemName = new String[count];
                 orderPersonName = new String[count];
                 orderPersonContact = new String[count];
@@ -68,7 +68,7 @@ public class OrderListActivity extends Fragment {
                     orderItemName[index]=rs.getString(4);
                     orderCost[index++]=rs.getString(5);
                 }
-                Toast.makeText(getActivity(),"Index "+ index, Toast.LENGTH_SHORT).show();
+
                 while(rs.next())
                 {
                     orderPersonName[index]=rs.getString(1);
@@ -77,27 +77,22 @@ public class OrderListActivity extends Fragment {
                     orderItemName[index]=rs.getString(4);
                     orderCost[index++]=rs.getString(5);
                 }
-                //ResultSetMetaData rsmd = rs.getMetaData();
-                customeOrderAdapter = new CustomeOrderAdapter(getActivity().getApplicationContext());
-                listView.setAdapter(customeOrderAdapter);
+
+                ListView  temp=(ListView)view.findViewById(R.id.content_orders_list_view2);
+                CustomeOrderAdapter customeOrderAdapter2 = new CustomeOrderAdapter(getActivity().getApplicationContext());
+                    temp.setAdapter(customeOrderAdapter2);
             }
             else {
                 Toast.makeText(getActivity(), "Please Check your Internet Connection", Toast.LENGTH_SHORT).show();
             }
         }
-        catch (Exception e) {
+        catch (SQLException e) {
             Toast.makeText(getActivity(), "Exception1 : "+e, Toast.LENGTH_SHORT).show();
         }
         return view;
     }
 
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-    }
-
-    public class CustomeOrderAdapter extends ArrayAdapter<String> {
+    class CustomeOrderAdapter extends ArrayAdapter<String> {
 
         Context context;
         public CustomeOrderAdapter(Context context) {
@@ -124,15 +119,12 @@ public class OrderListActivity extends Fragment {
         public View getView(int position, View convertView, ViewGroup parent) {
 
             convertView = getActivity().getLayoutInflater().inflate(R.layout.orderlistrow,null);
-            Toast.makeText(getActivity(),"in adapter",Toast.LENGTH_SHORT).show();
+
             ImageView imageView = (ImageView) convertView.findViewById(R.id.order_item_image);
             TextView textViewProdName = (TextView) convertView.findViewById(R.id.order_item_title);
             TextView textViewPersonName = (TextView) convertView.findViewById(R.id.order_item_person_name);
             TextView textViewContact = (TextView) convertView.findViewById(R.id.order_item_contact_no);
             TextView textViewCost = (TextView) convertView.findViewById(R.id.order_item_price);
-
-            //TextView textViewQuantity = (TextView) convertView.findViewById(R.id.order_item_quantity);
-
 
 
             imageView.setImageResource(itemImage[position]);

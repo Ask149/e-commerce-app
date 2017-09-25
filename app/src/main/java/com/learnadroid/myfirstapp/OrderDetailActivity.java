@@ -1,5 +1,6 @@
 package com.learnadroid.myfirstapp;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 public class OrderDetailActivity extends Fragment {
     String quan;
@@ -38,9 +40,10 @@ public class OrderDetailActivity extends Fragment {
         return inflater.inflate(R.layout.content_order_details,container,false);
     }
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        HomeActivity.fragment_no=5;
         getActivity().setTitle("Order");
         bbtn = (Button) view.findViewById(R.id.order_detail_buy_button);
         etaddress = (EditText) view.findViewById(R.id.order_address);
@@ -70,19 +73,16 @@ public class OrderDetailActivity extends Fragment {
             order_price.setText(s);
 
             total_price_int = total_price_int*qtity;
-            Toast.makeText(getActivity(),"Lets Insert",Toast.LENGTH_SHORT).show();
+
             ts=Integer.toString(total_price_int);
 
             bbtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         order_total_price.setText(ts);
-                        Toast.makeText(getActivity(),"Clicked",Toast.LENGTH_SHORT).show();
+
                         String name , address ;
                         String contact;
-                        address=etaddress.getText().toString();
-                        name=etname.getText().toString();
-                        contact=econtact.getText().toString();
                         address=etaddress.getText().toString();
                         name=etname.getText().toString();
                         contact=econtact.getText().toString();
@@ -92,22 +92,22 @@ public class OrderDetailActivity extends Fragment {
                         try {
                             st1 = con1.createStatement();
                             String sql2 = "insert into cart(user_id,name,address,contact_no,prod_id,quantity,total_cost) values('"+ MainActivity.user_id + "','" + name + "','" + address + "'," + contact + "," + HomeActivity.prod_id + "," + qtity + "," + total_price_int +");";
-                            Boolean rs1 = st1.execute(sql2);
+                            st1.execute(sql2);
                         }
-                        catch (Exception e)
-                        {
-                            Toast.makeText(getActivity(),"Exception"+e,Toast.LENGTH_SHORT).show();
+
+                        catch (SQLException e) {
+                            e.printStackTrace();
                         }
                         Fragment fragment = new OrderListActivity();
                         FragmentTransaction ft = getFragmentManager().beginTransaction();
-                        ft.replace(R.id.content_order_details,fragment);
+                        ft.replace(R.id.content_home,fragment);
+                        ft.addToBackStack(null);
                         ft.commit();
-                        Toast.makeText(getActivity(),"Exit",Toast.LENGTH_SHORT).show();
-                    }
+                 }
                 }
             );
         }
-        catch (Exception e)
+        catch (SQLException e)
         {
             Toast.makeText(getActivity(),"Exception : "+e,Toast.LENGTH_SHORT).show();
         }

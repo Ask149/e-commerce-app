@@ -8,6 +8,5 @@
     android:layout_height="match_parent"
     android:id="@+id/content_list_item_list_view"
     android:focusable="false"
-    android:clickable="false">
-</ListView>
+    android:clickable="false"/>
 </LinearLayout>

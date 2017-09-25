@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
     tools:context="com.learnadroid.myfirstapp.MainActivity"
     android:orientation="vertical">
 
@@ -20,35 +19,34 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:text="LOGIN"
-            android:textSize="40dp"
-            android:gravity="center"
-            android:textColor="#ffffff"
-            android:fontFamily="cursive"
             android:layout_marginBottom="20dp"
-            />
+            android:gravity="center"
+            android:text="LOGIN"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textStyle="bold" />
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:background="#1e9c9b9b"
-            android:textColorHint="#ffffff">
+            android:textColorHint="#7F7F7F">
 
             <EditText
                 android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Email"
-                android:singleLine="true"
-                android:textColor="#ffffff" />
+                android:inputType="textEmailAddress"
+                android:textAlignment="center"
+                android:textColor="#888888" />
+
         </android.support.design.widget.TextInputLayout>
+
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:background="#1e9c9b9b"
-            android:textColorHint="#ffffff">
+            android:textColorHint="#7F7F7F">
 
             <EditText
                 android:id="@+id/pass"
@@ -56,37 +54,30 @@
                 android:layout_height="wrap_content"
                 android:hint="Password"
                 android:inputType="textPassword"
-                android:singleLine="true"
-                android:textColor="#ffffff" />
+                android:textAlignment="center"
+                android:textColor="#888888" />
+
         </android.support.design.widget.TextInputLayout>
 
 
         <Button
+            android:id="@+id/login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Register"
             android:layout_marginTop="30dp"
-            android:background="#24c4b9"
-            android:textColor="#0b0b0b"
-            android:id="@+id/register"
-            />
-
+            android:background="#ff7f00"
+            android:text="Login"
+            android:textColor="#0b0b0b" />
 
         <Button
+            android:id="@+id/register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Login"
             android:layout_marginTop="30dp"
-            android:background="#24c4b9"
-            android:textColor="#0b0b0b"
-            android:id="@+id/login"
-            />
-
-
+            android:background="#ff7f00"
+            android:text="Register"
+            android:textColor="#0b0b0b" />
 
     </LinearLayout>
-
-
-
 
 </LinearLayout>

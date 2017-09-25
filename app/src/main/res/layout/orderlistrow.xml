@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="5dp">
 
     <ImageView
         android:id="@+id/order_item_image"
@@ -20,18 +23,19 @@
         android:id="@+id/order_item_title"
         android:layout_width="150dp"
         android:layout_height="60dp"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/order_item_image"
+        android:layout_toRightOf="@+id/order_item_image"
         android:clickable="false"
         android:ems="10"
         android:focusable="false"
         android:gravity="left|center"
         android:text="Product Name"
+        android:textAlignment="center"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/order_item_image"
-        android:layout_toEndOf="@+id/order_item_image" />
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/order_item_price"
@@ -45,6 +49,7 @@
         android:focusable="false"
         android:gravity="left|center"
         android:text="Price"
+        android:textAlignment="center"
         android:textColor="#FFFFFF" />
 
     <RatingBar
@@ -55,21 +60,25 @@
         android:layout_toEndOf="@+id/order_item_image"
         android:layout_toRightOf="@+id/order_item_image"
         android:isIndicator="true"
-        android:numStars="5" />
+        android:numStars="5"
+        android:rating="5"
+        android:stepSize="1" />
 
     <CheckedTextView
         android:id="@+id/order_row_check_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/order_item_contact_no"
         android:checkMarkTint="#7FFF7F"
-        android:checked="true"
+        android:checked="false"
         android:gravity="center"
         android:text="Order Successfully Placed"
         android:textAlignment="center"
+        android:textColor="#FFFFFF"
         android:textSize="18sp"
-        android:layout_below="@+id/order_item_contact_no"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        tools:text="Order Placed Successfully" />
 
     <TextView
         android:id="@+id/order_item_person_name"
@@ -79,6 +88,8 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/order_item_image"
         android:text="Person Name"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
         android:textSize="24sp" />
 
     <TextView
@@ -89,6 +100,8 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/order_item_person_name"
         android:text="Contact Number"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
         android:textSize="18sp" />
 
 </RelativeLayout>

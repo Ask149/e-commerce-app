@@ -20,29 +20,30 @@
         android:id="@+id/list_item_title"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:textColor="#FFFFFF"
         android:layout_above="@+id/list_item_price"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/list_item_image"
         android:layout_toEndOf="@+id/list_item_image"
         android:layout_toRightOf="@+id/list_item_image"
+        android:clickable="false"
         android:ems="10"
         android:focusable="false"
-        android:clickable="false"
+        android:text="Product Name"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:textColor="#373737"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/list_item_price"
-        android:focusable="false"
-        android:clickable="false"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:textColor="#FFFFFF"
         android:layout_alignBottom="@+id/list_item_image"
         android:layout_toEndOf="@+id/list_item_image"
         android:layout_toRightOf="@+id/list_item_image"
+        android:clickable="false"
         android:ems="10"
-    />
+        android:focusable="false"
+        android:text="Price"
+        android:textColor="#555555" />
 </RelativeLayout>
