@@ -1,65 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/content_detail_layout">
 
-    <ImageView
-        android:id="@+id/detail_product_image_view"
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="350dp"
+        android:layout_height="match_parent"
         android:layout_centerHorizontal="true"
-        android:adjustViewBounds="true"
-        android:contentDescription="Product Image"
-        android:cropToPadding="true"
-        android:src="@drawable/ic_menu_gallery"
-        android:visibility="visible" />
+        android:layout_centerVertical="true">
 
-    <TextView
-        android:id="@+id/detail_product_title"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_below="@+id/detail_product_image_view"
-        android:layout_centerHorizontal="true"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        android:textColor="#000000"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        tools:text="Title" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/detail_product_price"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/detail_product_title"
-        android:textColor="#252525"
-        android:textSize="24sp"
-        tools:text="Cost" />
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:id="@+id/detail_product_hori"
+                android:layout_height="400dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="23dp">
 
-    <TextView
-        android:id="@+id/detail_product_specs"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/detail_product_price"
-        android:textColor="#373737"
-        android:textSize="18sp"
-        tools:text="Description" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="400dp"
+                    android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/detail_buy_button"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_below="@+id/detail_product_specs"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="8dp"
-        android:background="#ff7f00"
-        android:text="Buy Now"
-        android:textColor="#0b0b0b" />
+                    <!--android:id="@+id/detail_product_image_view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:layout_centerHorizontal="true"
+                android:contentDescription="Product Image"
+                /-->
 
-</RelativeLayout>
+                    <ImageView
+                        android:id="@+id/detail_product_image_view1"
+                        android:layout_width="400dp"
+                        android:layout_height="400dp"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="Product Image"
+                        android:src="@drawable/ic_menu_gallery"
+                        android:visibility="visible" />
+
+                    <ImageView
+                        android:id="@+id/detail_product_image_view2"
+                        android:layout_width="400dp"
+                        android:layout_height="400dp"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="Product Image"
+                        android:src="@drawable/ic_menu_gallery"
+                        android:visibility="visible" />
+
+                    <ImageView
+                        android:id="@+id/detail_product_image_view3"
+                        android:layout_width="400dp"
+                        android:layout_height="400dp"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="Product Image"
+                        android:src="@drawable/ic_menu_gallery"
+                        android:visibility="visible" />
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+
+            <TextView
+                android:id="@+id/detail_product_title"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/detail_product_hori"
+                android:layout_centerHorizontal="true"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:textColor="#000000"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                tools:text="Title" />
+
+            <TextView
+                android:id="@+id/detail_product_price"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/detail_product_title"
+                android:textColor="#252525"
+                android:textSize="24sp"
+                tools:text="Cost" />
+
+            <TextView
+                android:id="@+id/detail_product_specs"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/detail_product_price"
+                android:textColor="#373737"
+                android:textSize="18sp"
+                tools:text="Description" />
+
+            <Button
+                android:id="@+id/detail_buy_button"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/detail_product_specs"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:background="#ff7f00"
+                android:text="Buy Now"
+                android:textColor="#0b0b0b" />
+
+        </RelativeLayout>
+    </ScrollView>
+</LinearLayout>

@@ -30,7 +30,11 @@ public class ListActivity extends Fragment {
 
     String itemName[];
     String itemPrice[];
-    int[] itemImage = {R.drawable.ic_menu_camera,R.drawable.ic_menu_camera,R.drawable.ic_menu_camera,R.drawable.ic_menu_camera,R.drawable.ic_menu_camera,R.drawable.ic_menu_camera,R.drawable.ic_menu_camera,R.drawable.ic_menu_camera,R.drawable.ic_menu_camera,  R.drawable.ic_menu_camera };
+    int[] itemImage1 = {R.drawable.a1,R.drawable.a2,R.drawable.a3,R.drawable.a4,R.drawable.a5,R.drawable.a6,R.drawable.a7,R.drawable.a8,R.drawable.a9,R.drawable.a10};
+    int[] itemImage2 = {R.drawable.a11,R.drawable.a12,R.drawable.a13,R.drawable.a14,R.drawable.a15,R.drawable.a16,R.drawable.a17,R.drawable.a18,R.drawable.a19,R.drawable.a20};
+    int[] itemImage3 = {R.drawable.a21,R.drawable.a22,R.drawable.a23,R.drawable.a24,R.drawable.a25,R.drawable.a26,R.drawable.a27,R.drawable.a28,R.drawable.a29,R.drawable.a30};
+    int[] itemImage4 = {R.drawable.a31,R.drawable.a32,R.drawable.a33,R.drawable.a34,R.drawable.a35,R.drawable.a36,R.drawable.a37,R.drawable.a38,R.drawable.a39,R.drawable.a40};
+    int[] itemImage5 = {R.drawable.a41,R.drawable.a42,R.drawable.a43,R.drawable.a44,R.drawable.a45,R.drawable.a46,R.drawable.a47,R.drawable.a48,R.drawable.a49,R.drawable.a50};
     ConnectionClass connectionClass;
 
     @Nullable
@@ -136,7 +140,18 @@ public class ListActivity extends Fragment {
             TextView textViewTitle = (TextView) convertView.findViewById(R.id.list_item_title);
             TextView textViewPrice = (TextView) convertView.findViewById(R.id.list_item_price);
 
-            imageView.setImageResource(itemImage[position]);
+            if(HomeActivity.cat_id==1)
+                imageView.setImageResource(itemImage1[position]);
+            else if(HomeActivity.cat_id==2)
+                imageView.setImageResource(itemImage2[position]);
+            else if(HomeActivity.cat_id==3)
+                imageView.setImageResource(itemImage3[position]);
+            else if(HomeActivity.cat_id==4)
+                imageView.setImageResource(itemImage4[position]);
+            else if(HomeActivity.cat_id==5)
+                imageView.setImageResource(itemImage5[position]);
+            else
+                imageView.setImageResource(itemImage1[position]);
             textViewTitle.setText(itemName[position]);
             textViewPrice.setText(itemPrice[position]);
 

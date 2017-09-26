@@ -5,11 +5,10 @@
     android:layout_width="match_parent"
     android:id="@+id/content_cat"
     android:layout_height="match_parent">
-
-
     <ImageButton
         android:id="@+id/cat_mobile_button"
         android:layout_width="150dp"
+        android:background="@drawable/shape_circle"
         android:layout_height="150dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -17,14 +16,16 @@
         android:layout_marginLeft="50dp"
         android:layout_marginStart="50dp"
         android:layout_marginTop="50dp"
-        app:srcCompat="@mipmap/ic_launcher_round" />
+        app:srcCompat="@drawable/smartphone_icon" />
 
     <ImageButton
         android:id="@+id/cat_laptop_button"
+        android:background="@drawable/shape_circle"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        app:srcCompat="@mipmap/ic_launcher_round"
+        app:srcCompat="@drawable/laptop_icon"
         android:layout_alignTop="@+id/cat_mobile_button"
+
         android:layout_toRightOf="@+id/cat_mobile_button"
         android:layout_toEndOf="@+id/cat_mobile_button"
         android:layout_marginLeft="21dp"
@@ -35,16 +36,18 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="33dp"
-        app:srcCompat="@mipmap/ic_launcher_round"
+        app:srcCompat="@drawable/washingmachine_icon"
         android:layout_below="@+id/cat_mobile_button"
+        android:background="@drawable/shape_circle"
         android:layout_alignLeft="@+id/cat_mobile_button"
         android:layout_alignStart="@+id/cat_mobile_button" />
 
     <ImageButton
         android:id="@+id/cat_fridge_button"
+        android:background="@drawable/shape_circle"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        app:srcCompat="@mipmap/ic_launcher_round"
+        app:srcCompat="@drawable/refrigerator_icon"
         android:layout_alignTop="@+id/cat_washing_button"
         android:layout_alignLeft="@+id/cat_laptop_button"
         android:layout_alignStart="@+id/cat_laptop_button" />
@@ -52,13 +55,15 @@
     <ImageButton
         android:id="@+id/cat_tv_button"
         android:layout_width="150dp"
+        android:background="@drawable/shape_circle"
         android:layout_height="150dp"
-        app:srcCompat="@mipmap/ic_launcher_round"
+        app:srcCompat="@drawable/television"
         android:layout_marginRight="82dp"
         android:layout_marginEnd="82dp"
         android:layout_below="@+id/cat_washing_button"
         android:layout_alignRight="@+id/cat_fridge_button"
         android:layout_alignEnd="@+id/cat_fridge_button"
         android:layout_marginTop="29dp" />
+
 
 </RelativeLayout>

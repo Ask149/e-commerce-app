@@ -79,8 +79,8 @@ public class OrderListActivity extends Fragment {
                 }
 
                 ListView  temp=(ListView)view.findViewById(R.id.content_orders_list_view2);
-                CustomeOrderAdapter customeOrderAdapter2 = new CustomeOrderAdapter(getActivity().getApplicationContext());
-                    temp.setAdapter(customeOrderAdapter2);
+                CustomeOrderAdapter customeOrderAdapter2 = new CustomeOrderAdapter(getContext());
+                temp.setAdapter(customeOrderAdapter2);
             }
             else {
                 Toast.makeText(getActivity(), "Please Check your Internet Connection", Toast.LENGTH_SHORT).show();
