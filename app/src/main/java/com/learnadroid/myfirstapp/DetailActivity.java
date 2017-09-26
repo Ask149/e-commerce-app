@@ -47,10 +47,6 @@ public class DetailActivity extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         getActivity().setTitle("Product Details");
-/*        ViewPager viewPager = (ViewPager) view.findViewById(R.id.detail_product_image_view_pager);
-        SliderAdapter sliderAdapter = new SliderAdapter(getActivity().getBaseContext(),sliderImage);
-        viewPager.setAdapter(sliderAdapter);
-*/
         connectionClass = new ConnectionClass();
         Connection con = connectionClass.CONN();
         String itemName ="" ;

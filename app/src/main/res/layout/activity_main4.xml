@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:textColorHint="#7F7F7F">
+            android:textColorHint="#333333">
 
             <EditText
                 android:id="@+id/rname"
@@ -37,7 +37,7 @@
                 android:hint="Name"
                 android:inputType="textPersonName"
                 android:textAlignment="center"
-                android:textColor="#FFFFFF" />
+                android:textColor="#000000" />
 
         </android.support.design.widget.TextInputLayout>
 
@@ -45,7 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:textColorHint="#7F7F7F">
+            android:textColorHint="#333333">
 
             <EditText
                 android:id="@+id/remail"
@@ -54,7 +54,7 @@
                 android:hint="Email"
                 android:inputType="textEmailAddress"
                 android:textAlignment="center"
-                android:textColor="#FFFFFF" />
+                android:textColor="#000000" />
 
         </android.support.design.widget.TextInputLayout>
 
@@ -62,8 +62,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:background="#1e9c9b9b"
-            android:textColorHint="#7F7F7F">
+            android:textColorHint="#333333">
 
             <EditText
                 android:id="@+id/rpass"
@@ -73,7 +72,7 @@
                 android:inputType="textPassword"
                 android:singleLine="true"
                 android:textAlignment="center"
-                android:textColor="#FFFFFF" />
+                android:textColor="#000000" />
         </android.support.design.widget.TextInputLayout>
 
         <Button
@@ -81,9 +80,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:background="#FF7F00"
+            android:background="#7f3333"
             android:text="Submit"
-            android:textColor="#0b0b0b" />
+            android:textColor="#000000" />
 
     </LinearLayout>
 

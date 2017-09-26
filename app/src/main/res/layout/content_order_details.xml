@@ -36,7 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:textColorHint="#888888">
+                android:textColorHint="#333333">
 
                 <EditText
                     android:id="@+id/order_address_name"
@@ -46,7 +46,7 @@
                     android:hint="Name"
                     android:inputType="textPersonName"
                     android:textAlignment="center"
-                    android:textColor="#FFFFFF" />
+                    android:textColor="#000000" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -54,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:background="#1e9c9b9b"
-                android:textColorHint="#888888">
+                android:textColorHint="#333333">
 
                 <EditText
                     android:id="@+id/order_address"
@@ -64,7 +64,7 @@
                     android:hint="Address"
                     android:inputType="textPostalAddress"
                     android:textAlignment="center"
-                    android:textColor="#FFFFFF" />
+                    android:textColor="#000000" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -72,7 +72,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:background="#1e9c9b9b"
-                android:textColorHint="#888888">
+                android:textColorHint="#333333">
 
                 <EditText
                     android:id="@+id/order_contact_no"
@@ -82,7 +82,7 @@
                     android:hint="Contact no"
                     android:inputType="phone"
                     android:textAlignment="center"
-                    android:textColor="#FFFFFF" />
+                    android:textColor="#000000" />
             </android.support.design.widget.TextInputLayout>
 
             <TextView
@@ -112,7 +112,7 @@
                     android:gravity="center"
                     android:inputType="number"
                     android:text="1"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000000"
                     tools:text="1" />
 
                 <TextView
@@ -125,7 +125,7 @@
                     android:layout_marginStart="10dp"
                     android:gravity="left|center"
                     android:text="Quantity"
-                    android:textColor="#555555"
+                    android:textColor="#000000"
                     android:textSize="18sp"
                     tools:text="Quantity" />
 
@@ -139,7 +139,7 @@
                     android:gravity="center"
                     android:text="0"
                     android:textAlignment="center"
-                    android:textColor="#555555"
+                    android:textColor="#000000"
                     android:textSize="18sp"
                     tools:text="0" />
 
@@ -152,7 +152,7 @@
                     android:layout_toStartOf="@+id/order_price_no"
                     android:gravity="left|center"
                     android:text="Price"
-                    android:textColor="#555555"
+                    android:textColor="#000000"
                     android:textSize="18sp"
                     tools:text="Price" />
 
@@ -165,7 +165,7 @@
                     android:layout_toRightOf="@+id/order_quantity_count"
                     android:gravity="center"
                     android:text="Total Price"
-                    android:textColor="#555555"
+                    android:textColor="#000000"
                     android:textSize="18sp" />
 
                 <TextView
@@ -177,7 +177,7 @@
                     android:layout_toRightOf="@+id/order_total_price_title"
                     android:gravity="center"
                     android:text="0"
-                    android:textColor="#555555"
+                    android:textColor="#000000"
                     android:textSize="18sp" />
 
                 <Button
@@ -190,7 +190,7 @@
                     android:layout_below="@+id/order_price_no"
                     android:layout_marginTop="7dp"
                     android:layout_weight="0.14"
-                    android:background="#FF7F00"
+                    android:background="#7F3333"
                     android:text="Purchase"
                     android:textSize="18sp" />
             </RelativeLayout>

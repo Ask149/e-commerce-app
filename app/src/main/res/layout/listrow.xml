@@ -31,7 +31,7 @@
         android:focusable="false"
         android:text="Product Name"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-        android:textColor="#373737"
+        android:textColor="#000000"
         android:textStyle="bold" />
 
     <TextView
@@ -45,5 +45,5 @@
         android:ems="10"
         android:focusable="false"
         android:text="Price"
-        android:textColor="#555555" />
+        android:textColor="#000000" />
 </RelativeLayout>

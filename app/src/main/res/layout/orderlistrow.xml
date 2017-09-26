@@ -33,7 +33,7 @@
         android:text="Product Name"
         android:textAlignment="center"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -50,7 +50,7 @@
         android:gravity="left|center"
         android:text="Price"
         android:textAlignment="center"
-        android:textColor="#FFFFFF" />
+        android:textColor="#000000" />
 
     <RatingBar
         android:id="@+id/order_row_review"
@@ -71,12 +71,12 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/order_item_contact_no"
-        android:checkMarkTint="#7FFF7F"
+        android:checkMarkTint="#00ff00"
         android:checked="false"
         android:gravity="center"
         android:text="Order Successfully Placed"
         android:textAlignment="center"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textSize="18sp"
         tools:text="Order Placed Successfully" />
 
@@ -89,7 +89,7 @@
         android:layout_below="@+id/order_item_image"
         android:text="Person Name"
         android:textAlignment="center"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textSize="24sp" />
 
     <TextView
@@ -101,7 +101,7 @@
         android:layout_below="@+id/order_item_person_name"
         android:text="Contact Number"
         android:textAlignment="center"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textSize="18sp" />
 
 </RelativeLayout>
