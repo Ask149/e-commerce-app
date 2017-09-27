@@ -160,6 +160,7 @@
                     android:id="@+id/order_total_price_title"
                     android:layout_width="100dp"
                     android:layout_height="80dp"
+                    android:layout_above="@+id/order_price_no"
                     android:layout_alignParentTop="true"
                     android:layout_toEndOf="@+id/order_quantity_count"
                     android:layout_toRightOf="@+id/order_quantity_count"
@@ -172,6 +173,7 @@
                     android:id="@+id/order_total_price"
                     android:layout_width="100dp"
                     android:layout_height="80dp"
+                    android:layout_alignBottom="@+id/order_total_price_title"
                     android:layout_alignParentTop="true"
                     android:layout_toEndOf="@+id/order_total_price_title"
                     android:layout_toRightOf="@+id/order_total_price_title"
@@ -188,11 +190,24 @@
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
                     android:layout_below="@+id/order_price_no"
-                    android:layout_marginTop="7dp"
+                    android:layout_marginTop="59dp"
                     android:layout_weight="0.14"
                     android:background="#7F3333"
                     android:text="Purchase"
                     android:textSize="18sp" />
+
+                <RadioButton
+                    android:id="@+id/order_detail_confirm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/order_price_no"
+                    android:layout_alignEnd="@+id/order_total_price"
+                    android:layout_alignRight="@+id/order_total_price"
+                    android:layout_below="@+id/order_quantity_count"
+                    android:layout_toRightOf="@+id/order_quantity_count"
+                    android:checked="false"
+                    android:duplicateParentState="false"
+                    android:text="Confirm Price" />
             </RelativeLayout>
         </LinearLayout>
     </ScrollView>

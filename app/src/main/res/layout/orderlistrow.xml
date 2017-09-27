@@ -52,56 +52,37 @@
         android:textAlignment="center"
         android:textColor="#000000" />
 
-    <RatingBar
-        android:id="@+id/order_row_review"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_below="@+id/order_item_title"
-        android:layout_toEndOf="@+id/order_item_image"
-        android:layout_toRightOf="@+id/order_item_image"
-        android:isIndicator="true"
-        android:numStars="5"
-        android:rating="5"
-        android:stepSize="1" />
-
     <CheckedTextView
         android:id="@+id/order_row_check_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/order_item_contact_no"
         android:checkMarkTint="#00ff00"
-        android:checked="false"
+        android:checked="true"
         android:gravity="center"
         android:text="Order Successfully Placed"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="18sp"
-        tools:text="Order Placed Successfully" />
+        tools:text="Order Placed Successfully"
+        android:layout_alignBottom="@+id/order_item_image"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/order_item_image"
+        android:layout_toEndOf="@+id/order_item_image" />
 
     <TextView
         android:id="@+id/order_item_person_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/order_item_image"
         android:text="Person Name"
         android:textAlignment="center"
         android:textColor="#000000"
-        android:textSize="24sp" />
-
-    <TextView
-        android:id="@+id/order_item_contact_no"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/order_item_person_name"
-        android:text="Contact Number"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="18sp" />
+        android:textSize="24sp"
+        android:layout_below="@+id/order_item_title"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/order_item_image"
+        android:layout_toEndOf="@+id/order_item_image"
+        android:layout_above="@+id/order_row_check_text" />
 
 </RelativeLayout>

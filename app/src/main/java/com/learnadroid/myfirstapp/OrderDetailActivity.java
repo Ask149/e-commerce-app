@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +23,7 @@ import java.sql.Statement;
 import java.util.List;
 
 public class OrderDetailActivity extends Fragment {
+    String s;
     String quan;
     EditText etaddress;
     EditText etname;
@@ -30,10 +32,12 @@ public class OrderDetailActivity extends Fragment {
     String ts;
     Button bbtn;
     int total_price_int;
+    int total_price_int2;
     EditText quantity;
     TextView order_price;
     ConnectionClass connectionClass;
     TextView order_total_price;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -58,54 +62,84 @@ public class OrderDetailActivity extends Fragment {
         {
 
             ResultSet rs;
+            Statement st1 = con.createStatement();
+            rs = st1.executeQuery("select c.name,c.quantity,c.contact_no,p.prod_name,c.quantity from cart c,product p where c.user_id='"+MainActivity.user_id+"' and p.prod_id = c.prod_id;");
             String sql = "select * from product where prod_id = "+HomeActivity.prod_id+";";
             PreparedStatement st = con.prepareStatement(sql);
             rs = st.executeQuery();
-            String s=null;
+            s=null;
+
             if(rs.next())
             {
                 total_price_int=rs.getInt(4);
                 s=rs.getString(4);
             }
-
             quan = quantity.getText().toString();
             qtity = Integer.parseInt(quan);
+            total_price_int2 = total_price_int*qtity;
+            ts=Integer.toString(total_price_int2);
             order_price.setText(s);
+            order_total_price.setText(ts);
+            RadioButton radiobutton = (RadioButton) view.findViewById(R.id.order_detail_confirm);
+            radiobutton.setOnClickListener(
+                    new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            quan = quantity.getText().toString();
+                            qtity = Integer.parseInt(quan);
+                            total_price_int2 = total_price_int*qtity;
+                            ts=Integer.toString(total_price_int2);
+                            order_price.setText(s);
+                            order_total_price.setText(ts);
+                        }
+                    }
+            );
 
-            total_price_int = total_price_int*qtity;
 
-            ts=Integer.toString(total_price_int);
 
-            bbtn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        order_total_price.setText(ts);
+        bbtn.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                    quan = quantity.getText().toString();
+                    qtity = Integer.parseInt(quan);
+                    total_price_int2 = total_price_int*qtity;
+                    ts=Integer.toString(total_price_int2);
+                    order_price.setText(s);
+                    order_total_price.setText(ts);
 
-                        String name , address ;
+                    String data1, data2, data3, data4;
+                    data1 = etaddress.getText().toString();
+                    data2 = econtact.getText().toString();
+                    data3 = etname.getText().toString();
+                    data4 = quantity.getText().toString();
+
+                    if (data1.trim().equals("") || data2.length() != 10 || data3.trim().equals("") || data4.trim().equals("0") || data4.trim().equals("")) {
+                        Toast.makeText(getActivity(), "Please enter valid details", Toast.LENGTH_LONG).show();
+                    } else {
+                        String name, address;
                         String contact;
-                        address=etaddress.getText().toString();
-                        name=etname.getText().toString();
-                        contact=econtact.getText().toString();
+                        address = etaddress.getText().toString();
+                        name = etname.getText().toString();
+                        contact = econtact.getText().toString();
                         Connection con1 = connectionClass.CONN();
 
                         Statement st1 = null;
                         try {
                             st1 = con1.createStatement();
-                            String sql2 = "insert into cart(user_id,name,address,contact_no,prod_id,quantity,total_cost) values('"+ MainActivity.user_id + "','" + name + "','" + address + "'," + contact + "," + HomeActivity.prod_id + "," + qtity + "," + total_price_int +");";
+                            String sql2 = "insert into cart(user_id,name,address,contact_no,prod_id,quantity,total_cost) values('" + MainActivity.user_id + "','" + name + "','" + address + "'," + contact + "," + HomeActivity.prod_id + "," + qtity + "," + total_price_int + ");";
                             st1.execute(sql2);
-                        }
-
-                        catch (SQLException e) {
+                        } catch (SQLException e) {
                             e.printStackTrace();
                         }
                         Fragment fragment = new OrderListActivity();
                         FragmentTransaction ft = getFragmentManager().beginTransaction();
-                        ft.replace(R.id.content_home,fragment);
+                        ft.replace(R.id.content_home, fragment);
                         ft.addToBackStack(null);
                         ft.commit();
-                 }
+                    }
                 }
-            );
+            }
+);
         }
         catch (SQLException e)
         {
