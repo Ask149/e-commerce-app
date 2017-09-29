@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,10 +26,17 @@ public class WelcomeActivity extends AppCompatActivity {
     private TextView[] dots;
     private int[] layouts;
     private Button btnSkip, btnNext;
+    private PrefManager prefManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        prefManager = new PrefManager(this);
+        if(!prefManager.isFirstTimeLaunch()){
+            launchHomeScreen();
+            finish();
+        }
 
         setContentView(R.layout.activity_welcome_activty);
         getSupportActionBar().hide();
@@ -57,7 +65,7 @@ public class WelcomeActivity extends AppCompatActivity {
                 R.layout.welcome_slide4};
 
         // adding bottom dots
-//        addBottomDots(0);
+        addBottomDots(0);
 
         // making notification bar transparent
         changeStatusBarColor();
@@ -88,7 +96,7 @@ public class WelcomeActivity extends AppCompatActivity {
             }
         });
     }
-/*
+
     private void addBottomDots(int currentPage) {
         dots = new TextView[layouts.length];
 
@@ -107,13 +115,13 @@ public class WelcomeActivity extends AppCompatActivity {
             dots[currentPage].setTextColor(colorsActive[currentPage]);
 
     }
-*/
+
     private int getItem(int i) {
         return viewPager.getCurrentItem() + i;
     }
 
     private void launchHomeScreen() {
-        // prefManager.setFirstTimeLaunch(false);
+         prefManager.setFirstTimeLaunch(false);
         startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
         finish();
     }
@@ -128,7 +136,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
         @Override
         public void onPageSelected(int position) {
-//            addBottomDots(position);
+            addBottomDots(position);
 
             // changing the next button text 'NEXT' / 'GOT IT'
             if (position == layouts.length - 1) {

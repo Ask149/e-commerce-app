@@ -12,8 +12,8 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="@dimen/img_width_height"
+            android:layout_height="@dimen/img_width_height"
             android:src="@drawable/dollar_bill" />
 
         <TextView
@@ -21,15 +21,15 @@
             android:layout_height="wrap_content"
             android:text="Cash On Delivery!!"
             android:textColor="@android:color/white"
-            android:textSize="40dp"
+            android:textSize="@dimen/slide_title"
             android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:paddingLeft="50dp"
-            android:paddingRight="50dp"
+            android:paddingLeft="@dimen/desc_padding"
+            android:paddingRight="@dimen/desc_padding"
             android:text="Easy way to pay"
             android:textAlignment="center"
             android:textColor="@android:color/white"

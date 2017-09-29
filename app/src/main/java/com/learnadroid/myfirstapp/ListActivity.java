@@ -153,7 +153,7 @@ public class ListActivity extends Fragment {
             else
                 imageView.setImageResource(itemImage1[position]);
             textViewTitle.setText(itemName[position]);
-            textViewPrice.setText(itemPrice[position]);
+            textViewPrice.setText("Rs. "+itemPrice[position]);
 
             return convertView;
         }
