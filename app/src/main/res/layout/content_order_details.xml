@@ -25,12 +25,15 @@
                 android:layout_height="40dp"
                 android:layout_marginBottom="20dp"
                 android:layout_weight="0.14"
+                android:fontFamily="sans-serif-condensed"
                 android:gravity="center|fill"
                 android:paddingLeft="5dp"
                 android:text="Address details"
                 android:textAlignment="center"
+                android:textAllCaps="true"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:typeface="serif" />
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
@@ -93,8 +96,9 @@
                 android:layout_weight="0.14"
                 android:gravity="center|fill"
                 android:paddingLeft="5dp"
-                android:text="Quantity details"
+                android:text="Details"
                 android:textAlignment="center"
+                android:textAllCaps="true"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                 android:textStyle="bold" />
 
@@ -119,15 +123,13 @@
                     android:id="@+id/order_quantity_title"
                     android:layout_width="150dp"
                     android:layout_height="40dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginStart="10dp"
                     android:gravity="left|center"
                     android:text="Quantity"
                     android:textColor="#000000"
                     android:textSize="18sp"
-                    tools:text="Quantity" />
+                    tools:text="Quantity"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
 
                 <TextView
                     android:id="@+id/order_price_no"
@@ -158,29 +160,29 @@
 
                 <TextView
                     android:id="@+id/order_total_price_title"
-                    android:layout_width="100dp"
-                    android:layout_height="80dp"
-                    android:layout_above="@+id/order_price_no"
+                    android:layout_width="120dp"
+                    android:layout_height="50dp"
                     android:layout_alignParentTop="true"
-                    android:layout_toEndOf="@+id/order_quantity_count"
-                    android:layout_toRightOf="@+id/order_quantity_count"
+                    android:layout_toLeftOf="@+id/order_total_price"
+                    android:layout_toStartOf="@+id/order_total_price"
                     android:gravity="center"
+                    android:paddingLeft="20dp"
                     android:text="Total Price"
+                    android:textAlignment="textStart"
                     android:textColor="#000000"
                     android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/order_total_price"
-                    android:layout_width="100dp"
-                    android:layout_height="80dp"
-                    android:layout_alignBottom="@+id/order_total_price_title"
-                    android:layout_alignParentTop="true"
-                    android:layout_toEndOf="@+id/order_total_price_title"
-                    android:layout_toRightOf="@+id/order_total_price_title"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:gravity="center"
                     android:text="0"
                     android:textColor="#000000"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
 
                 <Button
                     android:id="@+id/order_detail_buy_button"
@@ -192,22 +194,24 @@
                     android:layout_below="@+id/order_price_no"
                     android:layout_marginTop="59dp"
                     android:layout_weight="0.14"
-                    android:background="#7F3333"
+                    android:background="@color/theme"
                     android:text="Purchase"
                     android:textSize="18sp" />
 
                 <RadioButton
                     android:id="@+id/order_detail_confirm"
-                    android:layout_width="wrap_content"
+                    android:layout_width="170dp"
                     android:layout_height="wrap_content"
                     android:layout_alignBottom="@+id/order_price_no"
-                    android:layout_alignEnd="@+id/order_total_price"
-                    android:layout_alignRight="@+id/order_total_price"
-                    android:layout_below="@+id/order_quantity_count"
-                    android:layout_toRightOf="@+id/order_quantity_count"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/order_total_price_title"
+                    android:allowUndo="true"
+                    android:autoText="true"
                     android:checked="false"
                     android:duplicateParentState="false"
-                    android:text="Confirm Price" />
+                    android:paddingLeft="20dp"
+                    android:text="Update Price" />
             </RelativeLayout>
         </LinearLayout>
     </ScrollView>

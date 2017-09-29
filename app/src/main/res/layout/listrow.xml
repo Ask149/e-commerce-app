@@ -6,44 +6,48 @@
 
     <ImageView
         android:id="@+id/list_item_image"
-        android:layout_width="100dp"
-        android:focusable="false"
-        android:clickable="false"
-        android:layout_height="100dp"
-        app:srcCompat="@drawable/hackerrank"
-        android:layout_alignParentTop="true"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:contentDescription="Product Image" />
+        android:layout_alignParentTop="true"
+        android:clickable="false"
+        android:contentDescription="Product Image"
+        android:focusable="false"
+        android:padding="10dp"
+        app:srcCompat="@drawable/hackerrank" />
 
     <TextView
         android:id="@+id/list_item_title"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_above="@+id/list_item_price"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/list_item_image"
+        android:layout_height="90dp"
+        android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/list_item_image"
         android:layout_toRightOf="@+id/list_item_image"
         android:clickable="false"
         android:ems="10"
         android:focusable="false"
+        android:fontFamily="serif"
+        android:gravity="left"
         android:text="Product Name"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
         android:textColor="#000000"
-        android:textStyle="bold" />
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:typeface="serif" />
 
     <TextView
         android:id="@+id/list_item_price"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_alignBottom="@+id/list_item_image"
+        android:layout_height="60dp"
+        android:layout_below="@+id/list_item_title"
         android:layout_toEndOf="@+id/list_item_image"
         android:layout_toRightOf="@+id/list_item_image"
         android:clickable="false"
         android:ems="10"
         android:focusable="false"
+        android:gravity="left|center"
         android:text="Price"
-        android:textColor="#000000" />
+        android:textColor="#000000"
+        android:textSize="24sp" />
 </RelativeLayout>

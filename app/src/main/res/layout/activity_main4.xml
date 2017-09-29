@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backgroundimage2"
     android:orientation="vertical"
     tools:context="com.learnadroid.myfirstapp.Main4Activity">
 
@@ -23,12 +24,14 @@
             android:text="REGISTER"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="#FFFFFF"
             android:textStyle="bold" />
+
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:textColorHint="#333333">
+            android:textColorHint="#FFFFFF">
 
             <EditText
                 android:id="@+id/rname"
@@ -37,8 +40,8 @@
                 android:hint="Name"
                 android:inputType="textPersonName"
                 android:textAlignment="center"
-                android:textColor="#000000"
-                android:textColorLink="#000000" />
+                android:textColor="#FFFFFF"
+                android:textColorLink="#FFFFFF" />
 
         </android.support.design.widget.TextInputLayout>
 
@@ -46,7 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:textColorHint="#333333">
+            android:textColorHint="#FFFFFF">
 
             <EditText
                 android:id="@+id/remail"
@@ -55,8 +58,8 @@
                 android:hint="Email"
                 android:inputType="textEmailAddress"
                 android:textAlignment="center"
-                android:textColor="#000000"
-                android:textColorLink="#000000" />
+                android:textColor="#FFFFFF"
+                android:textColorLink="#FFFFFF" />
 
         </android.support.design.widget.TextInputLayout>
 
@@ -64,7 +67,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:textColorHint="#333333">
+            android:textColorHint="#FFFFFF">
 
             <EditText
                 android:id="@+id/rpass"
@@ -74,8 +77,8 @@
                 android:inputType="textPassword"
                 android:singleLine="true"
                 android:textAlignment="center"
-                android:textColor="#000000"
-                android:textColorLink="#000000" />
+                android:textColor="#FFFFFF"
+                android:textColorLink="#FFFFFF" />
         </android.support.design.widget.TextInputLayout>
 
         <Button
@@ -83,9 +86,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:background="#7f3333"
+            android:alpha="0.75"
             android:text="Submit"
-            android:textColor="#000000" />
+            android:textColor="#000000"
+             />
 
     </LinearLayout>
 

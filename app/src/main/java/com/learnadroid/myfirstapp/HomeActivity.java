@@ -13,6 +13,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ViewAnimator;
+
+import static android.R.anim.slide_in_left;
+import static android.R.anim.slide_out_right;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -27,6 +35,7 @@ public class HomeActivity extends AppCompatActivity
         cat_id=1;
         prod_id=1;
         fragment_no=1;
+
         setContentView(R.layout.activity_home);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -44,7 +53,6 @@ public class HomeActivity extends AppCompatActivity
     }
 
 
-
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -53,32 +61,38 @@ public class HomeActivity extends AppCompatActivity
         } else {
 //
             Fragment fragment = null;
-            if(fragment_no==1)
-                super.onBackPressed();
-            else if(fragment_no==2)
-            {
+            if(fragment_no==2){
                 fragment = new Fragment();
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.content_home,fragment);
+                ft.commit();
             }
             else if(fragment_no==3)
             {
                 fragment = new CategoryActivity();
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.content_home,fragment);
+                ft.commit();
             }
             else if(fragment_no==4)
             {
                 fragment = new ListActivity();
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.content_home,fragment);
+                ft.commit();
             }
             else if(fragment_no==5)
             {
                 fragment = new DetailActivity();
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.content_home,fragment);
+                ft.commit();
+
             }
             else
             {
                 super.onBackPressed();
             }
-            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.content_home,fragment);
-            ft.commit();
-
         }
     }
 

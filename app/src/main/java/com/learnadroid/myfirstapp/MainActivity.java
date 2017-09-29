@@ -120,6 +120,7 @@ public class MainActivity extends AppCompatActivity  {
         protected void onPostExecute(String s) {
             Toast.makeText(getBaseContext(),""+z,Toast.LENGTH_LONG).show();
             if(isSuccess) {
+
                 Intent intent=new Intent(MainActivity.this,HomeActivity.class);
                 startActivity(intent);
             }

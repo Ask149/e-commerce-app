@@ -10,6 +10,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="20dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true">
 
@@ -71,7 +72,7 @@
             <TextView
                 android:id="@+id/detail_product_title"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/detail_product_hori"
                 android:layout_centerHorizontal="true"
                 android:textAlignment="center"
@@ -82,11 +83,22 @@
                 tools:text="Title" />
 
             <TextView
+                android:id="@+id/detail_product_price_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/detail_product_title"
+                android:layout_marginRight="10dp"
+                android:text=" Price : "
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                tools:text="Price" />
+
+            <TextView
                 android:id="@+id/detail_product_price"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/detail_product_price_text"
                 android:layout_below="@+id/detail_product_title"
                 android:textAlignment="center"
                 android:textColor="#000000"
@@ -94,24 +106,44 @@
                 tools:text="Cost" />
 
             <TextView
-                android:id="@+id/detail_product_specs"
+                android:id="@+id/detail_product_desc"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/detail_product_price"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="5dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Specifications : "
+                android:textColor="#000000"
+                android:textSize="24sp"
+                android:typeface="sans"
+                tools:text="Description" />
+
+            <TextView
+                android:id="@+id/detail_product_specs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/detail_product_desc"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="5dp"
+                android:fontFamily="sans-serif-condensed"
                 android:textColor="#000000"
                 android:textSize="18sp"
+                android:typeface="sans"
                 tools:text="Description" />
 
             <Button
                 android:id="@+id/detail_buy_button"
-                android:layout_width="match_parent"
+                android:layout_width="200dp"
                 android:layout_height="50dp"
                 android:layout_below="@+id/detail_product_specs"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="8dp"
-                android:background="#7f3333"
+                android:background="@color/theme"
                 android:text="Buy Now"
                 android:textColor="#000000" />
 
