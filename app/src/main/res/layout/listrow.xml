@@ -1,62 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/list_item_image"
-        android:layout_width="150dp"
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:clickable="false"
-        android:contentDescription="Product Image"
-        android:focusable="false"
-        android:padding="10dp"
-        app:srcCompat="@drawable/hackerrank" />
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="650dp"
+        app:contentPadding="10dp">
 
-    <TextView
-        android:id="@+id/list_item_title"
-        android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/list_item_image"
-        android:layout_toRightOf="@+id/list_item_image"
-        android:clickable="false"
-        android:ems="10"
-        android:focusable="false"
-        android:fontFamily="serif"
-        android:gravity="left"
-        android:text="Product Name"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:typeface="serif" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <TextView
-        android:layout_width="100dp"
-        android:layout_height="60dp"
-        android:layout_below="@+id/list_item_title"
-        android:layout_toEndOf="@+id/list_item_image"
-        android:clickable="false"
-        android:ems="10"
-        android:focusable="false"
-        android:gravity="left|center"
-        android:text="Price"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        android:id="@+id/textView4" />
+            <ImageView
+                android:id="@+id/list_item_image"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:clickable="false"
+                android:contentDescription="Product Image"
+                android:focusable="false"
+                android:padding="10dp"
+                app:srcCompat="@drawable/hackerrank" />
 
-    <TextView
-        android:id="@+id/list_item_price"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_below="@+id/list_item_title"
-        android:layout_toEndOf="@+id/textView4"
-        android:layout_toRightOf="@+id/textView4"
-        android:gravity="left|center"
-        android:text="Price" />
+            <TextView
+                android:id="@+id/list_item_title"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/list_item_image"
+                android:layout_toRightOf="@+id/list_item_image"
+                android:clickable="false"
+                android:ems="10"
+                android:focusable="false"
+                android:fontFamily="serif"
+                android:gravity="left"
+                android:text="Product Name"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:textColor="#000000"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:typeface="serif" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                android:layout_below="@+id/list_item_title"
+                android:layout_toEndOf="@+id/list_item_image"
+                android:layout_toRightOf="@+id/list_item_image"
+                android:clickable="false"
+                android:ems="10"
+                android:focusable="false"
+                android:gravity="left|center"
+                android:text="Price"
+                android:textColor="#000000"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/list_item_price"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@+id/list_item_title"
+                android:layout_toEndOf="@+id/textView4"
+                android:layout_toRightOf="@+id/textView4"
+                android:gravity="left|center"
+                android:text="Price"
+                android:textSize="18sp" />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
 </RelativeLayout>
