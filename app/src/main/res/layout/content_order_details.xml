@@ -84,15 +84,17 @@
                     android:contentDescription="Contact Number Here"
                     android:hint="Contact no"
                     android:inputType="phone"
+                    android:layout_marginBottom="50dp"
                     android:textAlignment="center"
                     android:textColor="#000000" />
+
             </android.support.design.widget.TextInputLayout>
 
             <TextView
                 android:id="@+id/order_quantity_detail_title"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="30dp"
                 android:layout_weight="0.14"
                 android:gravity="center|fill"
                 android:paddingLeft="5dp"
@@ -108,7 +110,7 @@
 
                 <EditText
                     android:id="@+id/order_quantity_count"
-                    android:layout_width="50dp"
+                    android:layout_width="100dp"
                     android:layout_height="40dp"
                     android:layout_toEndOf="@+id/order_quantity_title"
                     android:layout_toRightOf="@+id/order_quantity_title"
@@ -121,19 +123,19 @@
 
                 <TextView
                     android:id="@+id/order_quantity_title"
-                    android:layout_width="150dp"
+                    android:layout_width="100dp"
                     android:layout_height="40dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
                     android:gravity="left|center"
                     android:text="Quantity"
                     android:textColor="#000000"
                     android:textSize="18sp"
-                    tools:text="Quantity"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true" />
+                    tools:text="Quantity" />
 
                 <TextView
                     android:id="@+id/order_price_no"
-                    android:layout_width="50dp"
+                    android:layout_width="100dp"
                     android:layout_height="40dp"
                     android:layout_below="@+id/order_quantity_count"
                     android:layout_toEndOf="@+id/order_quantity_title"
@@ -147,10 +149,9 @@
 
                 <TextView
                     android:id="@+id/order_price_title"
-                    android:layout_width="150dp"
+                    android:layout_width="100dp"
                     android:layout_height="40dp"
                     android:layout_below="@+id/order_quantity_title"
-                    android:layout_toLeftOf="@+id/order_price_no"
                     android:layout_toStartOf="@+id/order_price_no"
                     android:gravity="left|center"
                     android:text="Price"
@@ -164,39 +165,42 @@
                     android:layout_height="50dp"
                     android:layout_alignParentTop="true"
                     android:layout_toLeftOf="@+id/order_total_price"
-                    android:layout_toStartOf="@+id/order_total_price"
                     android:gravity="center"
                     android:paddingLeft="20dp"
                     android:text="Total Price"
-                    android:textAlignment="textStart"
                     android:textColor="#000000"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:layout_toRightOf="@+id/order_quantity_count"
+                    android:layout_toEndOf="@+id/order_quantity_count"
+                    android:layout_above="@+id/order_price_no" />
 
                 <TextView
                     android:id="@+id/order_total_price"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
+                    android:layout_above="@+id/order_detail_confirm"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/order_total_price_title"
                     android:gravity="center"
                     android:text="0"
+                    android:textAlignment="center"
                     android:textColor="#000000"
-                    android:textSize="18sp"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true" />
+                    android:textSize="18sp" />
 
                 <Button
                     android:id="@+id/order_detail_buy_button"
                     style="@style/Widget.AppCompat.Button.Borderless.Colored"
-                    android:layout_width="match_parent"
+                    android:layout_width="200dp"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_below="@+id/order_price_no"
-                    android:layout_marginTop="59dp"
                     android:layout_weight="0.14"
                     android:background="@color/theme"
                     android:text="Purchase"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:layout_marginTop="76dp"
+                    android:layout_below="@+id/order_price_no"
+                    android:layout_centerHorizontal="true" />
 
                 <RadioButton
                     android:id="@+id/order_detail_confirm"
@@ -211,7 +215,9 @@
                     android:checked="false"
                     android:duplicateParentState="false"
                     android:paddingLeft="20dp"
-                    android:text="Update Price" />
+                    android:text="Update Price"
+                    android:layout_toRightOf="@+id/order_price_no"
+                    android:layout_toEndOf="@+id/order_price_no" />
             </RelativeLayout>
         </LinearLayout>
     </ScrollView>

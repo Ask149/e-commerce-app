@@ -40,7 +40,7 @@
 
                     <ImageView
                         android:id="@+id/detail_product_image_view1"
-                        android:layout_width="450dp"
+                        android:layout_width="400dp"
                         android:layout_height="400dp"
                         android:adjustViewBounds="true"
                         android:contentDescription="Product Image"
@@ -49,7 +49,7 @@
 
                     <ImageView
                         android:id="@+id/detail_product_image_view2"
-                        android:layout_width="450dp"
+                        android:layout_width="400dp"
                         android:layout_height="400dp"
                         android:adjustViewBounds="true"
                         android:contentDescription="Product Image"
@@ -58,7 +58,7 @@
 
                     <ImageView
                         android:id="@+id/detail_product_image_view3"
-                        android:layout_width="450dp"
+                        android:layout_width="400dp"
                         android:layout_height="400dp"
                         android:adjustViewBounds="true"
                         android:contentDescription="Product Image"

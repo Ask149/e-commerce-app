@@ -118,6 +118,10 @@ public class HomeActivity extends AppCompatActivity
             ft.commit();
             return true;
         }
+        else if (id == R.id.action_logout)
+        {
+            startActivity(new Intent(HomeActivity.this,MainActivity.class));
+        }
 
         return super.onOptionsItemSelected(item);
     }
