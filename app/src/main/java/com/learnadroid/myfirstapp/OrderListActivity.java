@@ -1,18 +1,23 @@
 package com.learnadroid.myfirstapp;
 
+import android.app.NotificationManager;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.NotificationCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CheckedTextView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,9 +28,11 @@ import java.sql.Statement;
 
 public class OrderListActivity extends Fragment {
 
-
+    ProgressBar progressBar;
+    MyCountDownTimer myCountDownTimer;
     String orderItemName[];
     String orderPersonName[];
+    CheckedTextView textCounter;
     String orderCost[];
     int orderProductId[];
     int count;
@@ -78,7 +85,6 @@ public class OrderListActivity extends Fragment {
                     orderProductId[index]=rs.getInt(6);
                     orderCost[index++]=rs.getString(5);
                 }
-
                 ListView  temp=(ListView)view.findViewById(R.id.content_orders_list_view2);
                 CustomeOrderAdapter customeOrderAdapter2 = new CustomeOrderAdapter(getContext());
                 temp.setAdapter(customeOrderAdapter2);
@@ -119,12 +125,16 @@ public class OrderListActivity extends Fragment {
         public View getView(int position, View convertView, ViewGroup parent) {
 
             convertView = getActivity().getLayoutInflater().inflate(R.layout.orderlistrow,null);
+            progressBar = (ProgressBar)convertView.findViewById(R.id.progressBar);
+            textCounter = (CheckedTextView)convertView.findViewById(R.id.order_row_check_text);
+            progressBar.setProgress(0);
+            myCountDownTimer = new MyCountDownTimer(10000, 500);
+            myCountDownTimer.start();
 
             ImageView imageView = (ImageView) convertView.findViewById(R.id.order_item_image);
             TextView textViewProdName = (TextView) convertView.findViewById(R.id.order_item_title);
             TextView textViewPersonName = (TextView) convertView.findViewById(R.id.order_item_person_name);
             TextView textViewCost = (TextView) convertView.findViewById(R.id.order_item_price);
-
 
             imageView.setImageResource(itemImage[orderProductId[position]-1]);
             textViewProdName.setText(orderItemName[position]);
@@ -133,5 +143,37 @@ public class OrderListActivity extends Fragment {
 
             return convertView;
         }
+    }
+    public class MyCountDownTimer extends CountDownTimer {
+
+        public MyCountDownTimer(long millisInFuture, long countDownInterval) {
+            super(millisInFuture, countDownInterval);
+        }
+
+        @Override
+        public void onTick(long millisUntilFinished) {
+            //textCounter.setText(String.valueOf(millisUntilFinished));
+            textCounter.setText(String.valueOf(millisUntilFinished));
+            int progress = (int) (millisUntilFinished/100);
+            if(progress < 100 && progress >= 75)
+                textCounter.setText("Order is out for delivery");
+            else if(progress < 75 && progress >= 50 )
+                textCounter.setText("Order is being shipped");
+            else if(progress < 50 && progress >= 25)
+                textCounter.setText("Order is dispatched");
+            else
+            {
+                textCounter.setText("Order is out for delivery");
+            }
+            progressBar.setProgress(100-progress);
+        }
+
+        @Override
+        public void onFinish() {
+            textCounter.setText("Delivered");
+            textCounter.setCheckMarkDrawable(R.drawable.ok1);
+            progressBar.setProgress(100);
+        }
+
     }
 }

@@ -17,13 +17,17 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.ViewAnimator;
+
+import org.w3c.dom.Text;
 
 import static android.R.anim.slide_in_left;
 import static android.R.anim.slide_out_right;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    static public boolean flag;
     static public int fragment_no;
     static public int cat_id;
     static public int prod_id;
@@ -35,9 +39,12 @@ public class HomeActivity extends AppCompatActivity
         cat_id=1;
         prod_id=1;
         fragment_no=1;
-
+        flag=false;
         setContentView(R.layout.activity_home);
-
+        Fragment fragment = new CategoryActivity();
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.content_home,fragment);
+        ft.commit();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -100,6 +107,8 @@ public class HomeActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.home, menu);
+        TextView t = (TextView) findViewById(R.id.home_username);
+        t.setText(MainActivity.user_name);
         return true;
     }
 
@@ -116,6 +125,7 @@ public class HomeActivity extends AppCompatActivity
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.content_home,fragment);
             ft.commit();
+            flag=false;
             return true;
         }
         else if (id == R.id.action_logout)
@@ -125,6 +135,8 @@ public class HomeActivity extends AppCompatActivity
 
         return super.onOptionsItemSelected(item);
     }
+
+
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -160,4 +172,5 @@ public class HomeActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }

@@ -106,8 +106,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
                 android:layout_alignParentBottom="true"
+                android:layout_toLeftOf="@+id/order_item_price"
                 android:layout_toStartOf="@+id/order_item_price"
-                android:layout_toLeftOf="@+id/order_item_price" />
+                android:backgroundTint="@color/theme"
+                android:max="100"
+                android:progress="100"
+                android:progressTint="#FFFFFF" />
 
         </RelativeLayout>
 

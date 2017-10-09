@@ -79,9 +79,9 @@ public class Main4Activity extends AppCompatActivity {
                             Statement stmt = con.createStatement();
                             stmt.executeUpdate(query);
 
-                            z = "Register successfull";
+                            z = "Welcome "+namestr;
                             isSuccess = true;
-
+                            MainActivity.user_name=namestr;
                         }
                     } catch (Exception ex) {
                         isSuccess = false;
@@ -100,7 +100,6 @@ public class Main4Activity extends AppCompatActivity {
                     mIntent.putExtra("name",regname.getText().toString());
                     startActivity(mIntent);
                 }
-
                 progressDialog.hide();
             }
         }

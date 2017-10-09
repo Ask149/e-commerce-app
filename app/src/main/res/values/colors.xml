@@ -3,8 +3,8 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#ffffff</color>
-    <color name="theme">#1acc67</color>
-    <color name="theme2">#0066bf</color>
+    <color name="theme">#66000000</color>
+    <color name="theme2">#ffaa00</color>
     <color name="black_overlay">#66000000</color>
 
     <color name="bg_screen1">#f64c73</color>

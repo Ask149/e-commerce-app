@@ -18,6 +18,7 @@ import java.sql.Statement;
 public class MainActivity extends AppCompatActivity  {
 
     static public String user_id;
+    static public String user_name;
     EditText email,pass;
     Button register,login;
     ProgressDialog progressDialog;
@@ -76,6 +77,7 @@ public class MainActivity extends AppCompatActivity  {
         @Override
         protected String doInBackground(String... params) {
             z = "default message";
+            String name = "";
             if(emailstr.trim().equals("") ||passstr.trim().equals(""))
                 z = "Please enter all fields....";
             else
@@ -92,13 +94,15 @@ public class MainActivity extends AppCompatActivity  {
 
                         while (rs.next())
                         {
+                            name = rs.getString(1);
                             em=rs.getString(2);
                             password=rs.getString(3);
                             if(em.equals(emailstr)&&password.equals(passstr))
                             {
                                 isSuccess=true;
                                 user_id=emailstr;
-                                z = "Login successfull";
+                                z = "Welcome "+name;
+                                user_name = name;
                             }
                             else
                             {

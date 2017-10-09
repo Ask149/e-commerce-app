@@ -12,7 +12,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="title_activity_splash_screen">electronica</string>
-
+    <string name="category" >Category</string>
 
 
 </resources>

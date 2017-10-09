@@ -92,13 +92,31 @@ public class ListActivity extends Fragment {
                 {
                     itemName[index] = rs.getString(2);
                     itemPrice[index] = rs.getString(4);
-                    itemArrayList.add(new ListItem(itemName[index],itemPrice[index++]));
+                    if(HomeActivity.cat_id==1)
+                        itemArrayList.add(new ListItem(itemName[index],itemPrice[index],itemImage1[index++]));
+                    else if(HomeActivity.cat_id==2)
+                        itemArrayList.add(new ListItem(itemName[index],itemPrice[index],itemImage2[index++]));
+                    else if(HomeActivity.cat_id==3)
+                        itemArrayList.add(new ListItem(itemName[index],itemPrice[index],itemImage3[index++]));
+                    else if(HomeActivity.cat_id==4)
+                        itemArrayList.add(new ListItem(itemName[index],itemPrice[index],itemImage4[index++]));
+                    else
+                        itemArrayList.add(new ListItem(itemName[index],itemPrice[index],itemImage5[index++]));
                 }
                 while(rs.next())
                 {
                     itemName[index] = rs.getString(2);
                     itemPrice[index] = rs.getString(4);
-                    itemArrayList.add(new ListItem(itemName[index],itemPrice[index++]));
+                    if(HomeActivity.cat_id==1)
+                        itemArrayList.add(new ListItem(itemName[index],itemPrice[index],itemImage1[index++]));
+                    else if(HomeActivity.cat_id==2)
+                        itemArrayList.add(new ListItem(itemName[index],itemPrice[index],itemImage2[index++]));
+                    else if(HomeActivity.cat_id==3)
+                        itemArrayList.add(new ListItem(itemName[index],itemPrice[index],itemImage3[index++]));
+                    else if(HomeActivity.cat_id==4)
+                        itemArrayList.add(new ListItem(itemName[index],itemPrice[index],itemImage4[index++]));
+                    else
+                        itemArrayList.add(new ListItem(itemName[index],itemPrice[index],itemImage5[index++]));
                 }
 
                 sc.setIconified(false);
@@ -223,18 +241,7 @@ public class ListActivity extends Fragment {
             holder.name = (TextView) convertView.findViewById(R.id.list_item_title);
             holder.price = (TextView) convertView.findViewById(R.id.list_item_price);
 
-            if (HomeActivity.cat_id == 1)
-                imageView.setImageResource(itemImage1[position]);
-            else if (HomeActivity.cat_id == 2)
-                imageView.setImageResource(itemImage2[position]);
-            else if (HomeActivity.cat_id == 3)
-                imageView.setImageResource(itemImage3[position]);
-            else if (HomeActivity.cat_id == 4)
-                imageView.setImageResource(itemImage4[position]);
-            else if (HomeActivity.cat_id == 5)
-                imageView.setImageResource(itemImage5[position]);
-            else
-                imageView.setImageResource(itemImage1[position]);
+            imageView.setImageResource(itemArrayList.get(position).getImage());
 
             holder.name.setText(itemArrayList.get(position).getName());
             String pricetext = "";
@@ -287,12 +294,12 @@ public class ListActivity extends Fragment {
 
         private String name;
         private String price;
-        //private int image;
+        private int image;
 
-        public ListItem(String name,String price/*,int image*/){
+        public ListItem(String name,String price,int image){
             this.name = name;
             this.price = price;
-   //         this.image= image;
+            this.image= image;
         }
 
         public String getName(){
@@ -303,8 +310,8 @@ public class ListActivity extends Fragment {
             return price;
         }
 
- /*       public int getImage(){
+        public int getImage(){
             return image;
         }
- */   }
+    }
 }

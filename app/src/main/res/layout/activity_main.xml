@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/backgroundimage2"
+    android:background="@drawable/bck"
     android:layout_height="match_parent"
     tools:context="com.learnadroid.myfirstapp.MainActivity"
     android:orientation="vertical">
@@ -14,19 +14,22 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center"
-        android:layout_margin="25dp"
+        android:layout_margin="20dp"
         >
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_marginBottom="40dp"
+            android:layout_marginBottom="30dp"
             android:gravity="center"
             android:text="LOGIN"
+            android:textAllCaps="false"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:textColor="#FFFFFF"
-            android:textStyle="bold" />
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:typeface="serif" />
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"

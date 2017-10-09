@@ -1,11 +1,13 @@
 package com.learnadroid.myfirstapp;
 
-import android.content.Intent;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.content.Context;
+import android.os.Build;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,9 +22,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.List;
 
 public class OrderDetailActivity extends Fragment {
+
     String s;
     String quan;
     EditText etaddress;
@@ -30,6 +32,9 @@ public class OrderDetailActivity extends Fragment {
     EditText econtact;
     int qtity ;
     String ts;
+    private static final int MY_NOTIFICATION_ID=1;
+    NotificationManager notificationManager;
+    Notification myNotification;
     Button bbtn;
     int total_price_int;
     int total_price_int2;
@@ -43,6 +48,7 @@ public class OrderDetailActivity extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.content_order_details,container,false);
     }
+
     @Override
     public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -60,7 +66,6 @@ public class OrderDetailActivity extends Fragment {
         Connection con = connectionClass.CONN();
         try
         {
-
             ResultSet rs;
             Statement st1 = con.createStatement();
             rs = st1.executeQuery("select c.name,c.quantity,c.contact_no,p.prod_name,c.quantity from cart c,product p where c.user_id='"+MainActivity.user_id+"' and p.prod_id = c.prod_id;");
@@ -80,7 +85,10 @@ public class OrderDetailActivity extends Fragment {
             ts=Integer.toString(total_price_int2);
             order_price.setText(s);
             order_total_price.setText(ts);
-            RadioButton radiobutton = (RadioButton) view.findViewById(R.id.order_detail_confirm);
+
+
+
+            final RadioButton radiobutton = (RadioButton) view.findViewById(R.id.order_detail_confirm);
             radiobutton.setOnClickListener(
                     new View.OnClickListener() {
                         @Override
@@ -90,17 +98,17 @@ public class OrderDetailActivity extends Fragment {
                             total_price_int2 = total_price_int*qtity;
                             ts=Integer.toString(total_price_int2);
                             order_price.setText(s);
+                            radiobutton.setButtonDrawable(R.drawable.ok1);
                             order_total_price.setText(ts);
                         }
                     }
             );
 
-
-
         bbtn.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
                     quan = quantity.getText().toString();
+                    HomeActivity.flag=true;
                     qtity = Integer.parseInt(quan);
                     total_price_int2 = total_price_int*qtity;
                     ts=Integer.toString(total_price_int2);
@@ -136,10 +144,25 @@ public class OrderDetailActivity extends Fragment {
                         ft.replace(R.id.content_home, fragment);
                         ft.addToBackStack(null);
                         ft.commit();
+
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                            myNotification = new Notification.Builder(getActivity())
+                                    .setContentTitle(DetailActivity.product_name)
+                                    .setContentText("Order has been successfully placed !")
+                                    .setTicker("Notification!")
+                                    .setWhen(System.currentTimeMillis())
+                                    .setDefaults(Notification.DEFAULT_SOUND)
+                                    .setAutoCancel(true)
+                                    .setSmallIcon(R.drawable.mobile)
+                                    .build();
+                        }
+
+                        notificationManager = (NotificationManager) getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+                        notificationManager.notify(MY_NOTIFICATION_ID, myNotification);
+
                     }
                 }
-            }
-);
+            });
         }
         catch (SQLException e)
         {
