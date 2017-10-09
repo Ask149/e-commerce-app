@@ -14,28 +14,27 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center"
-        android:layout_margin="20dp"
-        >
+        android:layout_margin="15dp">
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="25dp"
             android:gravity="center"
             android:text="LOGIN"
             android:textAllCaps="false"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:textColor="#FFFFFF"
-            android:textSize="24sp"
+            android:textSize="30sp"
             android:textStyle="bold"
             android:typeface="serif" />
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:textColorHint="#FFFFFF">
+            android:layout_marginBottom="35dp"
+            android:textColorHint="#000000">
 
             <EditText
                 android:id="@+id/email"
@@ -52,8 +51,8 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:textColorHint="#FFFFFF">
+            android:layout_marginBottom="45dp"
+            android:textColorHint="#000000">
 
             <EditText
                 android:id="@+id/pass"
@@ -67,27 +66,23 @@
 
         </android.support.design.widget.TextInputLayout>
 
-
-        <Button
-            android:id="@+id/login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:alpha="0.75"
-            android:elevation="5dp"
-            android:text="Login"
-            android:textColor="#000000" />
+            <Button
+                android:id="@+id/login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#AAAAAA"
+                android:alpha="0.75"
+                android:text="Login"
+                android:textColor="#000000" />
 
         <Button
             android:id="@+id/register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:alpha="0.75"
-            android:elevation="5dp"
+            android:layout_marginTop="25dp"
+            android:background="#AAAAAA"
             android:text="Register"
             android:textColor="#000000" />
-
     </LinearLayout>
 
 </LinearLayout>

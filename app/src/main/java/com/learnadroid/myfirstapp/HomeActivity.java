@@ -20,6 +20,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ViewAnimator;
 
+import com.hitomi.cmlibrary.CircleMenu;
+
 import org.w3c.dom.Text;
 
 import static android.R.anim.slide_in_left;
@@ -65,7 +67,13 @@ public class HomeActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else {
+            CircleMenu circleMenu = (CircleMenu) findViewById(R.id.circle_menu);
+            if (circleMenu.isOpened())
+                    circleMenu.closeMenu();
+            else
+                finish();
+        }
+        else {
 //
             Fragment fragment = null;
             if(fragment_no==2){

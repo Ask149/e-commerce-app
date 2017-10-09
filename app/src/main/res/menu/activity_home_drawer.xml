@@ -24,7 +24,7 @@
             android:title="Refridgerator" />
         <item
             android:id="@+id/nav_tv"
-            android:icon="@drawable/television"
+            android:icon="@drawable/tv"
             android:title="Television" />
     </group>
 </menu>

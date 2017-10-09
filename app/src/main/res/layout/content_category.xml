@@ -1,29 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:de.hdodenhof="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:id="@+id/content_cat"
     android:layout_height="match_parent">
-    <ImageButton
+
+
+
+    <com.hitomi.cmlibrary.CircleMenu
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/circle_menu"
+        android:layout_centerInParent="true"/>
+
+<!--
+
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/cat_mobile_button"
         android:layout_width="150dp"
         android:background="@drawable/shape_circle"
         android:layout_height="150dp"
-        app:srcCompat="@drawable/smartphone_icon"
+        android:src="@drawable/smartphone_icon"
         android:layout_marginRight="13dp"
         android:layout_marginEnd="13dp"
         android:layout_alignTop="@+id/cat_laptop_button"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
-    <ImageButton
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/cat_laptop_button"
         android:background="@drawable/shape_circle"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        app:srcCompat="@drawable/laptop_icon"
-
+        android:src="@drawable/laptop_icon"
         android:layout_marginLeft="22dp"
         android:layout_marginStart="22dp"
         android:layout_alignParentTop="true"
@@ -31,28 +42,29 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="14dp" />
 
-    <ImageButton
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:src="@drawable/washingmachine_icon"
         android:id="@+id/cat_washing_button"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        app:srcCompat="@drawable/washingmachine_icon"
+        android:layout_centerInParent="true"
         android:background="@drawable/shape_circle"
         android:layout_alignParentBottom="true"
         android:layout_alignLeft="@+id/cat_mobile_button"
         android:layout_alignStart="@+id/cat_mobile_button"
         android:layout_marginBottom="33dp" />
 
-    <ImageButton
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/cat_fridge_button"
         android:background="@drawable/shape_circle"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        app:srcCompat="@drawable/refrigerator_icon"
+        android:src="@drawable/refrigerator_icon"
         android:layout_alignTop="@+id/cat_washing_button"
         android:layout_alignLeft="@+id/cat_laptop_button"
         android:layout_alignStart="@+id/cat_laptop_button" />
 
-    <ImageButton
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/cat_tv_button"
         android:layout_width="150dp"
         android:layout_height="150dp"
@@ -60,7 +72,7 @@
         android:layout_centerVertical="true"
         android:adjustViewBounds="false"
         android:background="@drawable/shape_circle"
-        app:srcCompat="@drawable/television" />
+        android:src="@drawable/television" />
 
-
+-->
 </RelativeLayout>
