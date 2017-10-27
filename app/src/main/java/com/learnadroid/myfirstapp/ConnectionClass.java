@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 public class ConnectionClass {
     String classs = "com.mysql.jdbc.Driver";
-    String url = "jdbc:mysql://192.168.43.56:3306/abc";
+    String url = "jdbc:mysql://169.254.11.22:3306/abc";
     String un = "qwerty";
     //String url = "jdbc:mysql://000webhost.com:3306/id3068596_electronica";
     //String un = "id3068596_qwerty";

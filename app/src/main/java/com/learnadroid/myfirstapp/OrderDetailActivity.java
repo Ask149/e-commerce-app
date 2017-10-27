@@ -1,13 +1,21 @@
 package com.learnadroid.myfirstapp;
 
+import android.Manifest;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Build;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,22 +31,27 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import static android.R.attr.button;
+
 public class OrderDetailActivity extends Fragment {
 
     String s;
     String quan;
     EditText etaddress;
+    RadioButton button;
     EditText etname;
     EditText econtact;
-    int qtity ;
+    int qtity;
     String ts;
-    private static final int MY_NOTIFICATION_ID=1;
+    private static final int MY_NOTIFICATION_ID = 1;
     NotificationManager notificationManager;
     Notification myNotification;
     Button bbtn;
     int total_price_int;
     int total_price_int2;
     EditText quantity;
+    LocationManager locationManager;
+    LocationListener locationListener;
     TextView order_price;
     ConnectionClass connectionClass;
     TextView order_total_price;
@@ -46,14 +59,15 @@ public class OrderDetailActivity extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.content_order_details,container,false);
+        return inflater.inflate(R.layout.content_order_details, container, false);
     }
 
     @Override
     public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        HomeActivity.fragment_no=5;
+        //button = (RadioButton) view.findViewById(R.id.radioButton);
+        HomeActivity.fragment_no = 5;
         getActivity().setTitle("Order");
         bbtn = (Button) view.findViewById(R.id.order_detail_buy_button);
         etaddress = (EditText) view.findViewById(R.id.order_address);
@@ -64,6 +78,62 @@ public class OrderDetailActivity extends Fragment {
         quantity = (EditText) view.findViewById(R.id.order_quantity_count);
         connectionClass = new ConnectionClass();
         Connection con = connectionClass.CONN();
+        locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
+        locationListener = new LocationListener() {
+            @Override
+            public void onLocationChanged(Location location) {
+                etaddress.setText(location.toString(),TextView.BufferType.EDITABLE);
+                Toast.makeText(getActivity(),"Location : "+location.toString(),Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onStatusChanged(String provider, int status, Bundle extras) {
+
+            }
+
+            @Override
+            public void onProviderEnabled(String provider) {
+                Toast.makeText(getActivity(),"Location : provider is "+provider.toString(),Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onProviderDisabled(String provider) {
+
+            }
+
+        };
+  /*      button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    // TODO: Consider calling
+                    //    ActivityCompat#requestPermissions
+                    // here to request the missing permissions, and then overriding
+                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                    //                                          int[] grantResults)
+                    // to handle the case where the user grants the permission. See the documentation
+                    // for ActivityCompat#requestPermissions for more details.
+                    requestPermissions(new String[]{
+                            Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION,
+                            Manifest.permission.INTERNET
+                    },10);
+                    Log.e("ERRO","If");
+                    return;
+                }
+                else {
+                    Log.e("ERRO","else");
+                    Location location=null;
+                    locationManager.requestLocationUpdates("gps", 5000, 0, locationListener);
+                    Toast.makeText(getContext(), locationListener.toString(), Toast.LENGTH_LONG).show();
+                    location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                    if(location==null)
+                        locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+                    etaddress.setText(location.toString(), TextView.BufferType.EDITABLE);
+
+                }
+            }
+        });
+*/
         try
         {
             ResultSet rs;
@@ -169,4 +239,27 @@ public class OrderDetailActivity extends Fragment {
             Toast.makeText(getActivity(),"Exception : "+e,Toast.LENGTH_SHORT).show();
         }
     }
+/*
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode)
+        {
+
+            case 10:
+                if(grantResults.length>0 && grantResults[0] ==PackageManager.PERMISSION_GRANTED) {
+                    Log.e("ERRO","request");
+                    locationManager.requestLocationUpdates("gps", 5000, 0, locationListener);
+                    String s = locationListener.toString();
+                    Toast.makeText(getContext(), locationListener.toString(), Toast.LENGTH_LONG).show();
+                    etaddress.setText(s, TextView.BufferType.EDITABLE);
+                }
+                else
+                    Toast.makeText(getContext(),"Not Granted",Toast.LENGTH_LONG).show();
+                return;
+        }
+        Toast.makeText(getContext(),locationListener.toString(),Toast.LENGTH_LONG).show();
+    }
+*/
+
 }

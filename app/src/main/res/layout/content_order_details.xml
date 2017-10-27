@@ -62,24 +62,32 @@ x            <android.support.design.widget.TextInputLayout
                     android:textColor="#000000" />
             </android.support.design.widget.TextInputLayout>
 
-            <android.support.design.widget.TextInputLayout
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:background="#1e9c9b9b"
+                android:id="@+id/order_address1"
                 android:textColorHint="#333333">
 
-                <EditText
-                    android:id="@+id/order_address"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="Enter here your address"
-                    android:hint="Address"
-                    android:inputType="textPostalAddress"
-                    android:textAlignment="center"
-                    android:textColor="#000000" />
-            </android.support.design.widget.TextInputLayout>
+                        <EditText
+                            android:id="@+id/order_address"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="Enter here your address"
+                            android:hint="Address"
+                            android:inputType="textPostalAddress"
+                            android:textAlignment="center"
+                            android:textColor="#000000" />
 
+                    </android.support.design.widget.TextInputLayout>
+
+                </RelativeLayout>
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
